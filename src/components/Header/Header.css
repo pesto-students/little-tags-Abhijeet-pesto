@@ -1,0 +1,72 @@
+.header-container {
+	justify-content: center;
+	display: flex;
+	color: #ffffff;
+	align-items: center;
+	padding: 0.5rem 1.5rem;
+}
+
+.hamburger-container {
+	font-size: 5rem;
+	padding: 0 2rem;
+}
+
+.brand-container {
+	font-size: 4rem;
+	padding: 0 2rem;
+}
+
+.searchbar-container {
+	flex: 1 1 auto;
+}
+
+.searchbar-container,
+.login-container,
+.user-details-container {
+	font-size: 2.5rem;
+	padding: 0 2rem;
+}
+
+.user-details-container {
+	flex: 0.25 1 0;
+}
+
+.user-details-container div:first-child {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.user-details {
+	display: flex;
+	align-items: center;
+}
+
+.user-details svg {
+	font-size: 1.4em;
+}
+
+.user-details span {
+	padding-left: 1rem;
+}
+
+.cart-icon-container {
+	font-size: 1.6em;
+	cursor: pointer;
+	position: relative;
+	bottom: 0.125em;
+}
+
+.cart-items {
+	border: 0.125em solid #ffffff;
+	border-radius: 50%;
+	font-size: 0.4em;
+	width: 1.5625em;
+	height: 1.5625em;
+	display: inline-flex;
+	align-items: center;
+	background-color: #ff0000;
+	justify-content: center;
+	position: absolute;
+	right: -0.625em;
+}

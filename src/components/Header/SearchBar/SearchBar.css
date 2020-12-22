@@ -1,0 +1,35 @@
+.search-icon-container {
+	background: #ffffff;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.search-icon-btn {
+	border: none;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	font-size: 2rem;
+	padding: 0.25em 0.75em;
+}
+
+.search-icon-btn:active:focus,
+.search-icon-btn:focus {
+	box-shadow: none !important;
+}
+
+.search-icon-btn:hover,
+.search-icon-btn:active {
+	color: black !important;
+	background-color: inherit !important;
+}
+
+.search-icon-btn svg {
+	font-size: 1.5em;
+}
+
+.search-input {
+	font-size: inherit;
+	border: none;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
