@@ -1,6 +1,5 @@
-import React from 'react';
 import './footer.css';
-function App(): JSX.Element {
+export const Footer = (): JSX.Element => {
 	return (
 		<div className='App'>
 			<div>
@@ -76,6 +75,4 @@ function App(): JSX.Element {
 			</div>
 		</div>
 	);
-}
-
-export default App;
+};

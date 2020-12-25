@@ -1,1 +1,1 @@
-export {};
+export { PRODUCTS } from './constants';

@@ -4,6 +4,9 @@
 	color: #ffffff;
 	align-items: center;
 	padding: 0.5rem 1.5rem;
+	position: fixed;
+	width: 100%;
+	z-index: 5;
 }
 
 .hamburger-container {

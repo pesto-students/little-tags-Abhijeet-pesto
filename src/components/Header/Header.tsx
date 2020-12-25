@@ -2,18 +2,40 @@ import './Header.css';
 import SearchBar from './SearchBar/SearchBar';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
-import { ReactElement } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 
-interface Props {
+export interface HeaderProps {
 	isLoggedIn: boolean;
 	userName: string;
 	itemsInCart: number;
 }
 
-export const Header = ({ userName, isLoggedIn, itemsInCart }: Props): ReactElement => {
+export const Header = ({ userName, isLoggedIn, itemsInCart }: HeaderProps): ReactElement => {
+	const [isScrollTop, setIsScrollTop] = useState(true);
+
+	useEffect(() => {
+		const onScroll = () => {
+			if (window.document.scrollingElement) {
+				const scrolled = window.document.scrollingElement.scrollTop;
+				if (scrolled >= 5) {
+					setIsScrollTop(false);
+				} else {
+					setIsScrollTop(true);
+				}
+			}
+		};
+		window.document.addEventListener('scroll', onScroll);
+		return () => {
+			window.document.removeEventListener('scroll', onScroll);
+		};
+	}, []);
+
 	return (
 		<header>
-			<div className='header-container'>
+			<div
+				className='header-container'
+				style={{ backgroundColor: isScrollTop ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, .5)' }}
+			>
 				<div className='hamburger-container'>
 					<GiHamburgerMenu />
 				</div>

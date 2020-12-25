@@ -1,0 +1,46 @@
+.in-demand-container {
+	height: 100%;
+	padding: 0 5rem;
+}
+
+.title-container {
+	align-items: center;
+	font-size: 6rem;
+	color: black;
+	font-weight: 500;
+	padding: 7rem 0;
+}
+
+.in-demand-grid {
+	height: calc(100% - 20rem);
+	padding: 0 10rem 20rem;
+}
+
+.in-demand-grid .row {
+	height: 100%;
+}
+
+.vertical .first,
+.vertical .second,
+.horizontal .first,
+.horizontal .second {
+	padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.vertical .first {
+		padding: 0 2.5rem 2.5rem 0;
+	}
+
+	.vertical .second {
+		padding: 2.5rem 2.5rem 0 0;
+	}
+
+	.horizontal .first {
+		padding: 0 2.5rem;
+	}
+
+	.horizontal .second {
+		padding: 0 0 0 2.5rem;
+	}
+}
