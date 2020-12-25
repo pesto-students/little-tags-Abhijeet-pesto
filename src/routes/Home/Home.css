@@ -48,7 +48,7 @@
 }
 
 .main-title .heading {
-	font-size: 75px;
+	font-size: 7.5rem;
 	font-weight: 500;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .sub-heading-text {
-	font-size: 35px;
+	font-size: 3.5rem;
 	font-weight: 500;
 	flex: 1 1 5rem;
 }

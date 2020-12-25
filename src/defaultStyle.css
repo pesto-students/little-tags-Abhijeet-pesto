@@ -54,3 +54,15 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
+
+@media only screen and (min-width: 1200px) {
+	html {
+		font-size: 8px;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	html {
+		font-size: 10px;
+	}
+}
