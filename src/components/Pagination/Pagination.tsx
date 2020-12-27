@@ -19,7 +19,7 @@ const defaultProps = {
 type PaginationProps = {
 	totalItems: number;
 	itemsPerPage: number;
-	onPageChange: any;
+	onPageChange: (arg: Pager) => void;
 } & typeof defaultProps;
 
 export const Pagination = ({ totalItems, itemsPerPage, onPageChange }: PaginationProps): ReactElement => {

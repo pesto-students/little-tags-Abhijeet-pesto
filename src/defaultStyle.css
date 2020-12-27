@@ -66,3 +66,40 @@ body {
 		font-size: 10px;
 	}
 }
+
+@font-face {
+	font-family: GothamMedium;
+	src: local(Gotham-Medium), url(assets/fonts/GothamMedium.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+}
+
+.item-list-container {
+	padding: 0 10rem 10rem;
+}
+
+.item-list-container ul {
+	list-style: none;
+	padding: 0;
+}
+
+.item-list-container ul li {
+	height: 25rem;
+	margin-bottom: 3rem;
+}
+
+.cart-container .item-list-container ul li {
+	margin-bottom: 4.5rem;
+}
+
+.category-title,
+.cart-title {
+	font-size: 5rem;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.2;
+	letter-spacing: normal;
+	padding-bottom: 5rem;
+}

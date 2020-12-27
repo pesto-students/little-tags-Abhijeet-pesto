@@ -1,0 +1,29 @@
+.little-tags-btn {
+	display: inline-flex;
+	align-items: center;
+	padding: 2rem 10rem;
+	width: 40rem;
+	height: 7.5rem;
+	border-radius: 11px;
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+	background-color: black;
+	font-size: 2.4rem;
+	font-family: GothamMedium;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.22;
+	color: #ffffff;
+}
+
+.little-tags-btn:hover {
+	color: #adb5bd;
+}
+
+.button-icon-container {
+	flex: 0.5 1 auto;
+}
+
+.button-text-container {
+	flex: 1 1 auto;
+}
