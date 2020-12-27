@@ -6,7 +6,7 @@ import { Image } from 'react-bootstrap';
 
 export const Home = (): ReactElement => {
 	return (
-		<Layout isLoggedIn={false} userName={''} itemsInCart={0}>
+		<Layout isLoggedIn={false} userName={''} itemsInCart={0} theme='white'>
 			<div className='home-container'>
 				<div className='main'>
 					<div className='main-bg'>

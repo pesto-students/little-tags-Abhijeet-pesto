@@ -7,11 +7,11 @@ interface LayoutProps extends HeaderProps {
 	children: ReactElement;
 }
 
-export const Layout = ({ userName, isLoggedIn, itemsInCart, children }: LayoutProps): ReactElement => {
+export const Layout = ({ userName, isLoggedIn, itemsInCart, theme, children }: LayoutProps): ReactElement => {
 	return (
 		<div>
 			<div className='header'>
-				<Header isLoggedIn={isLoggedIn} userName={userName} itemsInCart={itemsInCart} />
+				<Header isLoggedIn={isLoggedIn} userName={userName} itemsInCart={itemsInCart} theme={theme} />
 			</div>
 			<div className='content'>{children}</div>
 			<div className='footer'>

@@ -1,0 +1,27 @@
+.view-all-container {
+	padding: 15rem 25rem 20rem;
+}
+
+.category-title {
+	font-size: 5rem;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.19;
+	letter-spacing: normal;
+	padding-bottom: 7.5rem;
+}
+
+.item-list-container {
+	padding: 0 10rem 10rem;
+}
+
+.item-list-container ul {
+	list-style: none;
+	padding: 0;
+}
+
+.item-list-container ul li {
+	height: 25rem;
+	margin-bottom: 30px;
+}

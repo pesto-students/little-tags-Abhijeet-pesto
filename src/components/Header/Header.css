@@ -1,12 +1,33 @@
 .header-container {
 	justify-content: center;
-	display: flex;
-	color: #ffffff;
 	align-items: center;
-	padding: 0.5rem 1.5rem;
+	display: flex;
+	align-items: center;
+	padding: 1.5rem 2rem;
 	position: fixed;
 	width: 100%;
 	z-index: 5;
+}
+
+.header-container.white {
+	color: #ffffff;
+}
+
+.header-container.white.scroll-bg {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header-container.dark {
+	color: #000000;
+}
+
+.header-container.dark.scroll-bg {
+	background-color: rgba(218, 224, 229, 0.8);
+}
+
+.header-container .input-group {
+	border-radius: 10px;
+	box-shadow: 0 0 16px 0 rgba(10, 91, 106, 0.16);
 }
 
 .hamburger-container {

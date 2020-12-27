@@ -3,14 +3,16 @@ import SearchBar from './SearchBar/SearchBar';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
 import { ReactElement, useState, useEffect } from 'react';
+import classNames from 'classnames';
 
 export interface HeaderProps {
 	isLoggedIn: boolean;
 	userName: string;
 	itemsInCart: number;
+	theme: 'white' | 'dark';
 }
 
-export const Header = ({ userName, isLoggedIn, itemsInCart }: HeaderProps): ReactElement => {
+export const Header = ({ userName, isLoggedIn, itemsInCart, theme }: HeaderProps): ReactElement => {
 	const [isScrollTop, setIsScrollTop] = useState(true);
 
 	useEffect(() => {
@@ -33,8 +35,11 @@ export const Header = ({ userName, isLoggedIn, itemsInCart }: HeaderProps): Reac
 	return (
 		<header>
 			<div
-				className='header-container'
-				style={{ backgroundColor: isScrollTop ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, .5)' }}
+				className={classNames({
+					'header-container': true,
+					[`${theme}`]: true,
+					'scroll-bg': !isScrollTop,
+				})}
 			>
 				<div className='hamburger-container'>
 					<GiHamburgerMenu />
