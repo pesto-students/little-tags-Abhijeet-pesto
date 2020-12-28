@@ -1,7 +1,7 @@
 import './Layout.css';
 import { ReactElement } from 'react';
 import { Header, HeaderProps } from '../Header/Header';
-import { Footer } from '../footer/footer';
+import { Footer } from '../Footer/footer';
 
 interface LayoutProps extends HeaderProps {
 	children: ReactElement;

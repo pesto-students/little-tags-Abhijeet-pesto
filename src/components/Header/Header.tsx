@@ -1,9 +1,14 @@
 import './Header.css';
 import SearchBar from './SearchBar/SearchBar';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
 import { ReactElement, useState, useEffect } from 'react';
 import classNames from 'classnames';
+import { SideBar } from '../SideBar/SideBar';
+import Modal from '../common/Modal/Modal';
 
 export interface HeaderProps {
 	isLoggedIn: boolean;
@@ -14,6 +19,10 @@ export interface HeaderProps {
 
 export const Header = ({ userName, isLoggedIn, itemsInCart, theme }: HeaderProps): ReactElement => {
 	const [isScrollTop, setIsScrollTop] = useState(true);
+	const [sidebarHeader, setSidebarHeader] = useState(false);
+	const [isModalOpened, setIsModalOpened] = useState(false);
+
+	const showSidebar = () => setSidebarHeader(!sidebarHeader);
 
 	useEffect(() => {
 		const onScroll = () => {
@@ -42,7 +51,22 @@ export const Header = ({ userName, isLoggedIn, itemsInCart, theme }: HeaderProps
 				})}
 			>
 				<div className='hamburger-container'>
-					<GiHamburgerMenu />
+					<>
+						<div>
+							<Router>
+								<div className='navbar'>
+									<Link to='#' className='menu-bars'>
+										<FaIcons.FaBars onClick={showSidebar} />
+										{sidebarHeader ? <SideBar sidebar={sidebarHeader} /> : null}
+									</Link>
+								</div>
+
+								<Switch>
+									<Route path='/' />
+								</Switch>
+							</Router>
+						</div>
+					</>
 				</div>
 				<div className='brand-container'>
 					<span>Little Tags</span>
@@ -65,7 +89,39 @@ export const Header = ({ userName, isLoggedIn, itemsInCart, theme }: HeaderProps
 					</div>
 				) : (
 					<div className='login-container'>
-						<span>Log in/ Sign up</span>
+						{/* <span>Log in/ Sign up</span> */}
+						<button className='btn  btn-light' onClick={() => setIsModalOpened(true)}>
+							Log in/ Sign up
+						</button>
+						{isModalOpened && (
+							<Modal title='Log in / Sign up.' duration={500} onClose={() => setIsModalOpened(false)}>
+								<div>
+									Log in / Sign up using your
+									<div className='login_wrapper'>
+										<div>
+											<div>
+												{' '}
+												<a href='#' className='btn btn-primary btn_bg '>
+													{' '}
+													<AiIcons.AiOutlineGoogle size={28} /> {'     '} Login with Google
+													<i className='fa fa-google-plus'></i>{' '}
+												</a>{' '}
+											</div>
+										</div>
+										<div>
+											<div>
+												{' '}
+												<a href='#' className='btn btn-primary btn_bg'>
+													{'  '}
+													<FaIcons.FaFacebook size={28} />
+													<span> {'     '} Login with Facebook</span> <i className='fa fa-facebook'></i>{' '}
+												</a>{' '}
+											</div>
+										</div>
+									</div>
+								</div>
+							</Modal>
+						)}
 					</div>
 				)}
 			</div>
