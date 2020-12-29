@@ -43,7 +43,8 @@
   padding: 20px;
   text-align: center;
   color: #000;
-  font-size: 48px;
+  font-size: 36px;
+  font-family: Gotham;
 }
 .modal__body {
   padding: 20px 20px;
@@ -51,6 +52,7 @@
   position: relative;
   color: #000;
   font-size: 30px;
+  font-family: Gotham;
 }
 .modal__head .btn {
   position: absolute;
@@ -59,7 +61,7 @@
   width: 40px;
   height: 40px;
   margin: 0;
-  font-size: 24px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
