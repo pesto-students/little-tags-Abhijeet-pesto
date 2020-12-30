@@ -5,7 +5,7 @@ import { DeliveryCard } from '../../components/common';
 
 export const DeliverTo = (): ReactElement => {
 	return (
-		<div className='container'>
+		<div className='deliver-container'>
 			<div className='header'>Deliver To</div>
 
 			<DeliveryCard

@@ -4,7 +4,7 @@ import './PaymentPage.css';
 
 export const PaymentPage = (): ReactElement => {
 	return (
-		<div className='container'>
+		<div className='payment-container'>
 			<div className='header'>
 				Delivering To
 				<DeliveryCard

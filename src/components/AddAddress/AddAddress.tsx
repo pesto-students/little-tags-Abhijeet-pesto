@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import './AddAddress.css';
 export const AddAddress = (): ReactElement => {
 	return (
-		<div className='container'>
+		<div className='address-container'>
 			<div className='header'>Deliver To</div>
 			<div className='addAddressRow'>
 				<div className='addAddressCol'>
