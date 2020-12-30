@@ -5,6 +5,7 @@
 	grid-template-columns: min-content auto;
 	grid-gap: 0.5em;
 	cursor: pointer;
+	text-align: left;
 }
 
 .radio:focus-within .radio-label {
