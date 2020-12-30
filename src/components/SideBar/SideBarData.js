@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
+// import * as FaIcons from 'react-icons/fa';
+// import * as AiIcons from 'react-icons/ai';
 import * as BiIcons from 'react-icons/bi'
 import * as RiIcons from 'react-icons/ri';
-import * as GiIcons from 'react-icons/gi';
-import * as VscIcons from 'react-icons/vsc';
+// import * as GiIcons from 'react-icons/gi';
+// import * as VscIcons from 'react-icons/vsc';
 import React from 'react';
+
 
 export const SidebarData = [
     {

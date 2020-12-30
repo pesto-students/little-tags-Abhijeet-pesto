@@ -1,0 +1,28 @@
+.addInput {
+	display: flex;
+	justify-content: flex-start;
+	text-align: left;
+	font-size: 20px;
+	font-family: Gotham;
+}
+.addInputBox {
+	align-items: left;
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+	font-family: Gotham;
+}
+.header {
+	text-align: center;
+	font-size: 36px;
+}
+.AddAddressbutton {
+	width: 50%;
+	font-size: 20px;
+	height: 50px;
+	background-color: black;
+	color: white;
+}
+.AddAddressbtn {
+	padding-top: 25px;
+}
