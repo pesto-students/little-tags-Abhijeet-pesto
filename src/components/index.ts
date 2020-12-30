@@ -10,4 +10,5 @@ export { SideBar } from './SideBar/SideBar';
 export { Slider } from './ImageSlider/Slider';
 export { ProductDesc } from './ProductDesc/ProductDesc';
 export { OrderCard } from './OrderCard/OrderCard';
+export { ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
 export type { Pager } from './Pagination/Pagination';

@@ -1,7 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home, Cart, ViewAllCategory, Product, Orders } from './routes';
-import { Layout } from './components';
+import { Layout, ProtectedRoute } from './components';
+// import { Modal } from './components/common';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App(): JSX.Element {
@@ -10,11 +11,8 @@ function App(): JSX.Element {
 			<Layout isLoggedIn={false} userName={''} itemsInCart={0} theme='dark'>
 				<Router>
 					<Switch>
-						<Route path='/orders'>
-							<Orders />
-						</Route>
-						<Route path='/cart'>
-							<Cart />
+						<Route path='/login'>
+							<span>Login</span>
 						</Route>
 						<Route path='/product'>
 							<Product />
@@ -22,6 +20,8 @@ function App(): JSX.Element {
 						<Route path='/viewAll'>
 							<ViewAllCategory />
 						</Route>
+						<ProtectedRoute path='/orders' Component={Orders} isLoggedIn={false} />
+						<ProtectedRoute path='/cart' Component={Orders} isLoggedIn={false} />
 						<Route path='/'>
 							<Home />
 						</Route>

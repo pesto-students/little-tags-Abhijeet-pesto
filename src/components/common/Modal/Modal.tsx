@@ -10,7 +10,7 @@ interface ModalProps {
 	showCloseBtn?: boolean;
 }
 
-const Modal: FC<ModalProps> = ({ title, children, onClose, duration = 300, showCloseBtn }) => {
+export const Modal: FC<ModalProps> = ({ title, children, onClose, duration = 300, showCloseBtn }) => {
 	const modal = useRef<HTMLDivElement>(null);
 	const modalBg = useRef<HTMLDivElement>(null);
 	const modalContent = useRef<HTMLDivElement>(null);
@@ -85,5 +85,3 @@ const Modal: FC<ModalProps> = ({ title, children, onClose, duration = 300, showC
 		</div>
 	);
 };
-
-export default Modal;

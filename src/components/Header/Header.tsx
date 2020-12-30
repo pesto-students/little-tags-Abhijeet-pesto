@@ -6,7 +6,7 @@ import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
 import { ReactElement, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { SideBar } from '../SideBar/SideBar';
-import Modal from '../common/Modal/Modal';
+import { Modal } from '../common/Modal/Modal';
 
 export interface HeaderProps {
 	isLoggedIn: boolean;
