@@ -1,0 +1,35 @@
+.header {
+	text-align: center;
+	font-size: 40px;
+	padding: 15px;
+}
+.payment-options {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	flex: 0.1 1;
+	text-align: start;
+	width: 55%;
+	height: auto;
+	margin: auto;
+	padding: 10px;
+
+	font-size: 24px;
+}
+.name {
+	font-weight: bold;
+}
+.payment-padding {
+	padding-left: 20px;
+}
+
+.proccedBtnPadding {
+	padding-top: 25px;
+}
+.proccedButton {
+	width: 50%;
+	font-size: 20px;
+	height: 50px;
+	background-color: black;
+	color: white;
+}

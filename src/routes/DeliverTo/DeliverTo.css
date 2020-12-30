@@ -1,0 +1,35 @@
+.header {
+	text-align: center;
+	font-size: 40px;
+}
+.name {
+	font-weight: bold;
+	margin: auto;
+}
+
+.container {
+	padding: 20px;
+}
+.addNewAdd {
+	align-items: center;
+	font-size: 30px;
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+.proceedBtnPadding {
+	padding-top: 25px;
+	top: 20px;
+}
+.proceedButton {
+	width: 50%;
+	font-size: 20px;
+	height: 50px;
+	background-color: black;
+	color: white;
+}
+.address {
+	font-size: 20px;
+	padding-top: 20px;
+}

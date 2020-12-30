@@ -5,9 +5,11 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SideBarData';
 import './SideBar.css';
 import { IconContext } from 'react-icons';
+
 interface Props {
 	sidebar: boolean;
 }
+
 export function SideBar({ sidebar }: Props): ReactElement {
 	const [sidebarComponent, setSidebarComponent] = useState(sidebar);
 

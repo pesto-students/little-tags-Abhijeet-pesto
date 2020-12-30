@@ -4,7 +4,7 @@ export const Footer = (): JSX.Element => {
 		<div className='App'>
 			<div>
 				<div className='bg'>
-					<div className='container'>
+					<div className='containerFooter'>
 						<div>
 							<div className='info'>Contact-Info</div>
 							<div className='text'>
