@@ -5,30 +5,31 @@ export const AddAddress = (): ReactElement => {
 	return (
 		<div className='container'>
 			<div className='header'>Deliver To</div>
-			<div className='row'>
-				<div className='col'>
-					<div className='addInput  row-cols-1'>First Name</div>
+			<div className='addAddressRow'>
+				<div className='addAddressCol'>
+					<div className='addInput'>First Name</div>
 					<input className='addInputBox' type='text' />
-					<div className='addInput  row-cols-1'>Last Name</div>
+					<div className='addInput'>Last Name</div>
 					<input className='addInputBox' type='text' />
-					<div className='addInput  row-cols-1'>Email Id</div>
+					<div className='addInput  '>Email Id</div>
 					<input className='addInputBox' type='text' />
-					<div className='addInput  row-cols-1'>Phone Number</div>
+					<div className='addInput  '>Phone Number</div>
 					<input className='addInputBox' type='text' />{' '}
 				</div>
+				<div className='addAddressCol'></div>
 
-				<div className='col'>
-					<div className='addInput row-cols-1'>Address line 1</div>
+				<div className='addAddressCol'>
+					<div className='addInput '>Address line 1</div>
 					<input className='addInputBox' type='text' />
-					<div className='addInput row-cols-1'>Address line 2</div>
+					<div className='addInput '>Address line 2</div>
 					<input className='addInputBox' type='text' />
-					<div className='addInput row-cols-1'>State</div>
+					<div className='addInput '>State</div>
 					<select className='addInputBox'>
 						<option>1</option>
 						<option>1</option>
 						<option>1</option>
 					</select>
-					<div className='addInput row-cols-1'>Pincode</div>
+					<div className='addInput '>Pincode</div>
 					<input className='addInputBox' type='text' />
 				</div>
 			</div>

@@ -4,6 +4,8 @@
 	text-align: left;
 	font-size: 20px;
 	font-family: Gotham;
+	padding: 10px;
+	font-weight: bold;
 }
 .addInputBox {
 	align-items: left;
@@ -11,6 +13,7 @@
 	height: 50px;
 	font-size: 20px;
 	font-family: Gotham;
+	border-radius: 10px;
 }
 .header {
 	text-align: center;
@@ -25,4 +28,15 @@
 }
 .AddAddressbtn {
 	padding-top: 25px;
+}
+.addAddressCol {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.addAddressRow {
+	display: flex;
+	flex-direction: row;
+
+	justify-content: space-between;
 }

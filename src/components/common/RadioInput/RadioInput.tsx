@@ -3,7 +3,7 @@ import './RadioInput.css';
 
 interface RadioInputProps {
 	name: string;
-	label: string;
+	label: ReactElement;
 	value: string | number;
 	onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
