@@ -28,6 +28,7 @@ body {
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1;
+	text-align: center;
 }
 
 .no-padding {
@@ -79,13 +80,17 @@ body {
 	padding: 0 10rem 10rem;
 }
 
+.cart-container .item-list-container {
+	padding: 0 10rem 5rem;
+}
+
 .item-list-container ul {
 	list-style: none;
 	padding: 0;
 }
 
 .item-list-container ul li {
-	height: 25rem;
+	height: 20rem;
 	margin-bottom: 3rem;
 }
 
@@ -93,8 +98,13 @@ body {
 	margin-bottom: 4.5rem;
 }
 
+.orders-container .item-list-container ul li {
+	height: 25rem;
+}
+
 .category-title,
-.cart-title {
+.cart-title,
+.orders-title {
 	font-size: 5rem;
 	font-weight: 500;
 	font-stretch: normal;
