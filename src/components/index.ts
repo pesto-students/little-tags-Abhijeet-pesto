@@ -9,4 +9,5 @@ export { Pagination } from './Pagination/Pagination';
 export { SideBar } from './SideBar/SideBar';
 export { Slider } from './ImageSlider/Slider';
 export { ProductDesc } from './ProductDesc/ProductDesc';
+export { OrderCard } from './OrderCard/OrderCard';
 export type { Pager } from './Pagination/Pagination';
