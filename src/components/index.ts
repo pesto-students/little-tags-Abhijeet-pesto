@@ -6,4 +6,7 @@ export { Layout } from './Layout/Layout';
 export { CategoryCard } from './CategoryCard/CategoryCard';
 export { CartItemCard } from './CartItemCard/CartItemCard';
 export { Pagination } from './Pagination/Pagination';
+export { SideBar } from './SideBar/SideBar';
+export { Slider } from './ImageSlider/Slider';
+export { ProductDesc } from './ProductDesc/ProductDesc';
 export type { Pager } from './Pagination/Pagination';

@@ -1,6 +1,6 @@
 import { ReactElement, useState, useEffect } from 'react';
 import './ViewAllCategory.css';
-import { CategoryCard, Pagination, Pager, Layout } from '../../components';
+import { CategoryCard, Pagination, Pager } from '../../components';
 
 interface ProductDetail {
 	id: number;
@@ -43,26 +43,24 @@ export const ViewAllCategory = (): ReactElement => {
 	};
 
 	return (
-		<Layout isLoggedIn={false} userName={''} itemsInCart={0} theme='dark'>
-			<div className='view-all-container'>
-				<div className='category-title'>
-					<span>All Shirts</span>
-				</div>
-				<div className='item-list-container'>
-					<ul>
-						{currentItems.map((item) => (
-							<li key={item.id}>
-								<CategoryCard imgSrc={item.image} productName={item.title} productPrice={item.price} />
-							</li>
-						))}
-					</ul>
-				</div>
-				{itemList.length > 0 && (
-					<div className='pagination-controls'>
-						<Pagination totalItems={itemList.length} onPageChange={onPgaeChange} />
-					</div>
-				)}
+		<div className='view-all-container'>
+			<div className='category-title'>
+				<span>All Shirts</span>
 			</div>
-		</Layout>
+			<div className='item-list-container'>
+				<ul>
+					{currentItems.map((item) => (
+						<li key={item.id}>
+							<CategoryCard imgSrc={item.image} productName={item.title} productPrice={item.price} />
+						</li>
+					))}
+				</ul>
+			</div>
+			{itemList.length > 0 && (
+				<div className='pagination-controls'>
+					<Pagination totalItems={itemList.length} onPageChange={onPgaeChange} />
+				</div>
+			)}
+		</div>
 	);
 };
