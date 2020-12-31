@@ -1,6 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-
-// import * as FaIcons from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SideBarData';
 import './SideBar.css';
@@ -10,9 +9,12 @@ interface Props {
 	sidebar: boolean;
 }
 
-export function SideBar({ sidebar }: Props): ReactElement {
+export const SideBar = ({ sidebar }: Props): ReactElement => {
 	const [sidebarComponent, setSidebarComponent] = useState(sidebar);
-
+	const history = useHistory();
+	const onClickHistory = (item: string) => {
+		history.push(item);
+	};
 	const showSidebarComponent = () => setSidebarComponent(!sidebarComponent);
 	return (
 		<>
@@ -27,14 +29,12 @@ export function SideBar({ sidebar }: Props): ReactElement {
 						</li>
 						{SidebarData.map((item, index) => {
 							return (
-								<div key={index}>
-									<li key={index} className={item.cName}>
-										<span>
-											{item.icon}
-											<span>{item.title}</span>
-										</span>
-									</li>
-								</div>
+								<li key={index} className={item.cName}>
+									<span onClick={() => onClickHistory(item.path)}>
+										{item.icon}
+										<span>{item.title}</span>
+									</span>
+								</li>
 							);
 						})}
 					</ul>
@@ -42,4 +42,4 @@ export function SideBar({ sidebar }: Props): ReactElement {
 			</IconContext.Provider>
 		</>
 	);
-}
+};

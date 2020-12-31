@@ -12,3 +12,4 @@ export { ProductDesc } from './ProductDesc/ProductDesc';
 export { OrderCard } from './OrderCard/OrderCard';
 export { ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
 export type { Pager } from './Pagination/Pagination';
+export { ThankYou } from './ThankYou/ThankYou';
