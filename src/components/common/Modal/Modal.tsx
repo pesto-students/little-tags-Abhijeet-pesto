@@ -69,7 +69,7 @@ export const Modal: FC<ModalProps> = ({ title, children, onClose, duration = 300
 	};
 
 	return (
-		<div className='modal' ref={modal}>
+		<div className='custom-modal' ref={modal}>
 			<div className='modal__bg' onClick={modalCloseHandler} ref={modalBg}></div>
 			<div className='modal__inner' ref={modalContent}>
 				<div className='modal__head'>
