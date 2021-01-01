@@ -85,29 +85,27 @@ export const Header = ({ userName, isLoggedIn, itemsInCart, theme }: HeaderProps
 						{/* <span>Log in/ Sign up</span> */}
 						<span onClick={() => setIsModalOpened(true)}>Log in/ Sign up</span>
 						{isModalOpened && (
-							<Modal title='Log in / Sign up.' duration={500} onClose={() => setIsModalOpened(false)}>
-								<div>
-									Log in / Sign up using your
-									<div className='login_wrapper'>
+							<Modal title='Log in / Sign up' duration={500} onClose={() => setIsModalOpened(false)}>
+								<div className='login-items'>Log in / Sign up using your</div>
+								<div className='login_wrapper'>
+									<div>
 										<div>
-											<div>
+											{' '}
+											<a href='#' className='btn btn-primary btn_bg btn_Login'>
 												{' '}
-												<a href='#' className='btn btn-primary btn_bg btn_Login'>
-													{' '}
-													<AiIcons.AiOutlineGoogle size={28} /> {'     '} Login with Google
-													<i className='fa fa-google-plus'></i>{' '}
-												</a>{' '}
-											</div>
+												<AiIcons.AiOutlineGoogle size={28} /> {'     '} Login with Google
+												<i className='fa fa-google-plus'></i>{' '}
+											</a>{' '}
 										</div>
+									</div>
+									<div>
 										<div>
-											<div>
-												{' '}
-												<a href='#' className='mw-100 btn btn-primary btn_bg '>
-													{'  '}
-													<FaIcons.FaFacebook size={28} />
-													<span> {'     '} Login with Facebook</span> <i className='fa fa-facebook'></i>{' '}
-												</a>{' '}
-											</div>
+											{' '}
+											<a href='#' className='mw-100 btn btn-primary btn_bg '>
+												{'  '}
+												<FaIcons.FaFacebook size={28} />
+												<span> {'     '} Login with Facebook</span> <i className='fa fa-facebook'></i>{' '}
+											</a>{' '}
 										</div>
 									</div>
 								</div>

@@ -3,8 +3,13 @@ import { PRODUCTS } from '../../utilities';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../ProductCard/ProductCard';
 import { ReactElement } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export const InDemand = (): ReactElement => {
+	const history = useHistory();
+	const onClickHistory = (item: string) => {
+		history.push(item);
+	};
 	return (
 		<Container fluid className='in-demand-container'>
 			<Row className='title-container'>
@@ -16,20 +21,20 @@ export const InDemand = (): ReactElement => {
 				<Col>
 					<Row xs={1} sm={1} md={1} lg={1} xl={1} className='vertical'>
 						<Col className='first'>
-							<ProductCard product={PRODUCTS.TSHIRT} />
+							<ProductCard product={PRODUCTS.TSHIRT} onClickRedirct={() => onClickHistory('/Viewall')} />
 						</Col>
 						<Col className='second'>
-							<ProductCard product={PRODUCTS.JEANS} />
+							<ProductCard product={PRODUCTS.JEANS} onClickRedirct={() => onClickHistory('/Viewall')} />
 						</Col>
 					</Row>
 				</Col>
 				<Col>
 					<Row className='horizontal'>
 						<Col xs={12} sm={12} md={6} lg={6} xl={6} className='first'>
-							<ProductCard product={PRODUCTS.BACKPACK} />
+							<ProductCard product={PRODUCTS.BACKPACK} onClickRedirct={() => onClickHistory('/Viewall')} />
 						</Col>
 						<Col xs={12} sm={12} md={6} lg={6} xl={6} className='second'>
-							<ProductCard product={PRODUCTS.NECKLACE} />
+							<ProductCard product={PRODUCTS.NECKLACE} onClickRedirct={() => onClickHistory('/Viewall')} />
 						</Col>
 					</Row>
 				</Col>
