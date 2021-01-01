@@ -1,4 +1,5 @@
-import { ReactElement, useEffect, useState, useCallback } from 'react';
+// eslint-disable-next-line react-hooks/exhaustive-deps
+import { ReactElement, useState, useCallback } from 'react';
 import './Pagination.css';
 import classNames from 'classnames';
 
@@ -25,9 +26,9 @@ type PaginationProps = {
 export const Pagination = ({ totalItems, itemsPerPage, onPageChange }: PaginationProps): ReactElement => {
 	const [pager, setPager] = useState<Pager>({} as Pager);
 
-	useEffect(() => {
-		setPage(1);
-	}, []);
+	// useEffect(() => {
+	// 	setPage(1);
+	// }, []);
 
 	const setPage = (page: number) => {
 		if (page < 1 || page > pager.noOfPages || page === pager.currentPage) {
