@@ -109,3 +109,13 @@
 .login-container span {
 	cursor: pointer;
 }
+
+.login-items {
+	font-size: 30px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.2;
+	letter-spacing: normal;
+	margin-bottom: 15px;
+}

@@ -1,0 +1,17 @@
+.thankyou-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.thankyou-container .text {
+	font-family: Gotham;
+	font-size: 50px;
+	font-weight: 500;
+}
+.button {
+	margin-top: 60px;
+	width: 30%;
+	height: 40px;
+	font-family: Gotham;
+	font-size: 30px;
+}

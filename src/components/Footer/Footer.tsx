@@ -1,4 +1,4 @@
-import './footer.css';
+import './Footer.css';
 export const Footer = (): JSX.Element => {
 	return (
 		<div className='App'>

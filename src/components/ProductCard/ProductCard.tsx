@@ -8,11 +8,12 @@ interface Props {
 		imgPath: string;
 		imgAlt: string;
 	};
+	onClickRedirct: () => void;
 }
 
-const ProductCard = ({ product }: Props): ReactElement => {
+const ProductCard = ({ product, onClickRedirct }: Props): ReactElement => {
 	return (
-		<div className='product-card-container'>
+		<div className='product-card-container' onClick={() => onClickRedirct()}>
 			<div className='product-card-bg'>
 				<Image src={product.imgPath} alt={product.imgAlt} fluid />
 			</div>

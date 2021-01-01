@@ -8,8 +8,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App(): JSX.Element {
 	return (
 		<div className='App'>
-			<Layout isLoggedIn={false} userName={''} itemsInCart={0} theme='dark'>
-				<Router>
+			<Router>
+				<Layout isLoggedIn={false} userName={''} itemsInCart={0} theme='dark'>
 					<Switch>
 						<Route path='/login'>
 							<span>Login</span>
@@ -21,13 +21,13 @@ function App(): JSX.Element {
 							<ViewAllCategory />
 						</Route>
 						<ProtectedRoute path='/orders' Component={Orders} isLoggedIn={false} />
-						<ProtectedRoute path='/cart' Component={Orders} isLoggedIn={false} />
+						<ProtectedRoute path='/cart' Component={Cart} isLoggedIn={false} />
 						<Route path='/'>
 							<Home />
 						</Route>
 					</Switch>
-				</Router>
-			</Layout>
+				</Layout>
+			</Router>
 		</div>
 	);
 }

@@ -23,6 +23,7 @@
 	left: -100%;
 	transition: 850ms;
 	border-radius: 25px;
+	z-index: 10;
 }
 
 .nav-user {
