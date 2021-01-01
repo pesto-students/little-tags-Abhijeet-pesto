@@ -22,6 +22,8 @@
 
 .button-icon-container {
 	flex: 0.5 1 auto;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .button-text-container {
