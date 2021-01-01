@@ -11,6 +11,6 @@ export { Slider } from './ImageSlider/Slider';
 export { ProductDesc } from './ProductDesc/ProductDesc';
 export { OrderCard } from './OrderCard/OrderCard';
 export { ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
+export { Footer } from './Footer/Footer';
 export type { Pager } from './Pagination/Pagination';
 export { ThankYou } from './ThankYou/ThankYou';
-//export { Footer } from './footer/footer';
