@@ -1,1 +1,1 @@
-export { PRODUCTS } from './constants';
+export { PRODUCT_CATEGORIES, CATEGORIES } from './constants';

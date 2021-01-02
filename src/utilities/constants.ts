@@ -3,27 +3,38 @@ import jeans from '../assets/images/jeans.jpg';
 import backpack from '../assets/images/backpack.jpg';
 import necklace from '../assets/images/necklace.jpg';
 
-export const PRODUCTS: {
-	[key: string]: { title: string; imgPath: string; imgAlt: string };
+export enum CATEGORIES {
+	MEN = 'men clothing',
+	WOMEN = 'women clothing',
+	JEWELERY = 'jewelery',
+	ELECTRONIS = 'electronics',
+}
+
+export const PRODUCT_CATEGORIES: {
+	[key: string]: { title: string; imgPath: string; imgAlt: string; category: CATEGORIES };
 } = {
-	TSHIRT: {
-		title: 'T Shirt',
+	MEN: {
+		title: `Men's Clothing`,
 		imgPath: tshirt,
 		imgAlt: 'T shirt image',
+		category: CATEGORIES.MEN,
 	},
-	JEANS: {
-		title: 'Jeans',
+	WOMEN: {
+		title: `Women's Clothing`,
 		imgPath: jeans,
 		imgAlt: 'Jeans image',
+		category: CATEGORIES.WOMEN,
 	},
-	BACKPACK: {
-		title: 'Backpack',
+	ELECTRONIS: {
+		title: 'Electronics',
 		imgPath: backpack,
 		imgAlt: 'Backpack image',
+		category: CATEGORIES.ELECTRONIS,
 	},
-	NECKLACE: {
-		title: 'Charm necklace',
+	JEWELERY: {
+		title: 'Jewelery',
 		imgPath: necklace,
 		imgAlt: 'Necklace image',
+		category: CATEGORIES.JEWELERY,
 	},
 };

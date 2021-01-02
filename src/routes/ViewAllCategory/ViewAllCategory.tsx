@@ -1,35 +1,25 @@
 import { ReactElement, useState, useEffect } from 'react';
 import './ViewAllCategory.css';
 import { CategoryCard, Pagination, Pager } from '../../components';
+import { useParams } from 'react-router-dom';
+import { CATEGORIES } from '../../utilities';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../rootReducer';
+import { selectItemsByCategory, InventoryItem } from '../../slices';
 
-interface ProductDetail {
-	id: number;
-	title: string;
-	price: number;
-	description: string;
-	category: string;
-	image: string;
+interface ParamType {
+	category: CATEGORIES;
 }
 
-// type ViewAllCategoryProps = {
-// 	allItems: ProductDetail[];
-// };
-
 export const ViewAllCategory = (): ReactElement => {
-	const [currentItems, setCurrentItems] = useState<Array<ProductDetail>>([]);
+	const { category } = useParams<ParamType>();
+	const itemList = useSelector((state: RootState) => selectItemsByCategory(state, category));
+	const [currentItems, setCurrentItems] = useState<Array<InventoryItem>>(() => {
+		return itemList.length > 5 ? itemList.slice(0, 5) : itemList;
+	});
 
-	const [itemList, setItemList] = useState<Array<ProductDetail>>([]);
 	useEffect(() => {
-		fetch('https://fakestoreapi.com/products')
-			.then((res) => res.json())
-			.then((items) => {
-				setItemList(items);
-				if (items.length > 5) {
-					setCurrentItems(items.slice(0, 5));
-				} else {
-					setCurrentItems(items);
-				}
-			});
+		window.scrollTo(0, 0);
 	}, []);
 
 	const onPgaeChange = (pager: Pager) => {
@@ -51,12 +41,17 @@ export const ViewAllCategory = (): ReactElement => {
 				<ul>
 					{currentItems.map((item) => (
 						<li key={item.id}>
-							<CategoryCard imgSrc={item.image} productName={item.title} productPrice={item.price} />
+							<CategoryCard
+								productId={item.id}
+								imgSrc={item.image}
+								productName={item.title}
+								productPrice={item.price}
+							/>
 						</li>
 					))}
 				</ul>
 			</div>
-			{itemList.length > 0 && (
+			{itemList.length > 5 && (
 				<div className='pagination-controls'>
 					<Pagination totalItems={itemList.length} onPageChange={onPgaeChange} />
 				</div>
