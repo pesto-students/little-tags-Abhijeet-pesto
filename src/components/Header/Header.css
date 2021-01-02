@@ -40,6 +40,10 @@
 	padding: 0 2rem;
 }
 
+.brand-container span {
+	cursor: pointer;
+}
+
 .searchbar-container {
 	flex: 1 1 auto;
 }

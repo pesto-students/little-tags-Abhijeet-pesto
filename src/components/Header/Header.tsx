@@ -5,20 +5,25 @@ import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
 import { ReactElement, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { SideBar } from '../SideBar/SideBar';
-import { openLoginModal } from '../../slices/userSlice';
-import { useDispatch } from 'react-redux';
+import { openLoginModal, getTotalItemsInCart } from '../../slices';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useRouteMatch } from 'react-router-dom';
+import { RootState } from '../../rootReducer';
 
 export interface HeaderProps {
-	isLoggedIn: boolean;
 	userName: string | null;
-	itemsInCart: number;
-	theme: 'white' | 'dark';
+	isLoggedIn: boolean;
 }
 
-export const Header = ({ userName, isLoggedIn, itemsInCart, theme }: HeaderProps): ReactElement => {
+export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 	const [isScrollTop, setIsScrollTop] = useState(true);
 	const [sidebarHeader, setSidebarHeader] = useState(false);
+	const itemsInCart = useSelector((state: RootState) => getTotalItemsInCart(state));
 	const dispatch = useDispatch();
+	const history = useHistory();
+	const match = useRouteMatch('/');
+
+	const theme = match?.isExact ? 'white' : 'dark';
 
 	const showSidebar = () => setSidebarHeader(!sidebarHeader);
 
@@ -66,7 +71,7 @@ export const Header = ({ userName, isLoggedIn, itemsInCart, theme }: HeaderProps
 					</>
 				</div>
 				<div className='brand-container'>
-					<span>Little Tags</span>
+					<span onClick={() => history.push('/')}>Little Tags</span>
 				</div>
 				<div className='searchbar-container'>
 					<SearchBar />
@@ -78,7 +83,7 @@ export const Header = ({ userName, isLoggedIn, itemsInCart, theme }: HeaderProps
 								<FaRegUserCircle />
 								<span>{userName}</span>
 							</div>
-							<div className='cart-icon-container'>
+							<div className='cart-icon-container' onClick={() => history.push('/cart')}>
 								<FaShoppingCart />
 								{itemsInCart > 0 && <span className='cart-items'>{itemsInCart}</span>}
 							</div>
