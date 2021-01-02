@@ -24,7 +24,6 @@ export const Slider = ({ slides }: SliderProps): ReactElement => {
 		if (sliderRef.current) {
 			setSliderWidth(sliderRef.current.offsetWidth);
 			setTranslateX(sliderRef.current.offsetWidth);
-			console.log(sliderRef);
 		}
 	}, []);
 

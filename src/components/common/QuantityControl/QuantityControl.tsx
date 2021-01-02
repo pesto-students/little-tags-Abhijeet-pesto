@@ -1,14 +1,27 @@
-import { ReactElement, MouseEvent } from 'react';
+import { ReactElement, useState } from 'react';
 import './QuantityControl.css';
-// import { FiPlus, FiMinus } from 'react-icons/fi';
 
 interface QuantityControlProps {
-	quantity: number;
-	onInc: (event?: MouseEvent<HTMLButtonElement>) => void;
-	onDec: (event?: MouseEvent<HTMLButtonElement>) => void;
+	initialQuantity: number;
+	onQuantityChange: (quantity: number) => void;
 }
 
-export const QuantityControl = ({ quantity, onInc, onDec }: QuantityControlProps): ReactElement => {
+export const QuantityControl = ({ initialQuantity, onQuantityChange }: QuantityControlProps): ReactElement => {
+	const [quantity, setQuantity] = useState(initialQuantity);
+
+	const onInc = () => {
+		setQuantity(quantity + 1);
+		onQuantityChange(quantity + 1);
+	};
+
+	const onDec = () => {
+		if (quantity === 1) {
+			return;
+		}
+		setQuantity(quantity - 1);
+		onQuantityChange(quantity - 1);
+	};
+
 	return (
 		<div className='quantity-control'>
 			<button type='button' className='btn' onClick={onDec}>

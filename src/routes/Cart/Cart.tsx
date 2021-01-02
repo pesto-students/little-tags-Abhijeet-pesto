@@ -1,8 +1,32 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import './Cart.css';
-import { CartItemCard, Button } from '../../components';
+import { CartItemCard, Button, Pagination, Pager } from '../../components';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../rootReducer';
+import { selectCartItems, modifyItem, CartItem } from '../../slices';
 
 export const Cart = (): ReactElement => {
+	const itemsInCart = useSelector((state: RootState) => selectCartItems(state));
+	const [currentItems, setCurrentItems] = useState<Array<CartItem>>(() => {
+		return itemsInCart.length > 5 ? itemsInCart.slice(0, 5) : itemsInCart;
+	});
+	const dispatch = useDispatch();
+	const history = useHistory();
+
+	const onPageChange = (pager: Pager) => {
+		const { currentStartIndex, currentEndIndex } = pager;
+		if (currentEndIndex >= itemsInCart.length) {
+			setCurrentItems(itemsInCart.slice(currentStartIndex));
+		} else {
+			setCurrentItems(itemsInCart.slice(currentStartIndex, currentEndIndex));
+		}
+	};
+
+	const onItemQuantityChange = (id: number, quantity: number) => {
+		dispatch(modifyItem({ id, changes: { quantity } }));
+	};
+
 	return (
 		<div className='cart-container'>
 			<div className='cart-title'>
@@ -10,26 +34,22 @@ export const Cart = (): ReactElement => {
 			</div>
 			<div className='item-list-container'>
 				<ul>
-					{/* {currentItems.map((item) => ( ////// implement looop
-							<li key={item.id}>
-								<CategoryCard imgSrc={item.image} productName={item.title} productPrice={item.price} />
-							</li>
-						))} */}
-					<li>
-						<CartItemCard />
-					</li>
-					<li>
-						<CartItemCard />
-					</li>
+					{currentItems.map((item) => (
+						<li key={item.id}>
+							<CartItemCard item={item} onItemQuantityChange={onItemQuantityChange} />
+						</li>
+					))}
 				</ul>
 			</div>
-			{/* {itemList.length > 0 && (   ///////////////  code for pagination
-					<div className='pagination-controls'>
-						<Pagination totalItems={itemList.length} onPageChange={onPgaeChange} />
-					</div>
-				)} */}
+			{itemsInCart.length > 5 && ( ///////////////  code for pagination
+				<div className='pagination-controls'>
+					<Pagination totalItems={itemsInCart.length} onPageChange={onPageChange} />
+				</div>
+			)}
 			<div className='proceed-btn'>
-				<Button type='button'>Proceed</Button>
+				<Button type='button' onClick={() => history.push('/deliverto')}>
+					Proceed
+				</Button>
 			</div>
 		</div>
 	);

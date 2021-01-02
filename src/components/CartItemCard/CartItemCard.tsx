@@ -2,24 +2,36 @@ import { ReactElement } from 'react';
 import './CartItemCard.css';
 import { ProductThumbnail } from '../ProductThumbnail/ProductThumbnail';
 import { QuantityControl } from '../common';
+import { CartItem } from '../../slices';
 
-export const CartItemCard = (): ReactElement => {
+interface CartItemCardProps {
+	item: CartItem;
+	onItemQuantityChange: (id: number, quantity: number) => void;
+}
+
+export const CartItemCard = ({ item, onItemQuantityChange }: CartItemCardProps): ReactElement => {
+	const { id, name, price, imgUrl, quantity: itemQuantity } = item;
+
+	const onQuantityChange = (quantity: number) => {
+		onItemQuantityChange(id, quantity);
+	};
+
 	return (
 		<div className='cart-item-container'>
 			<div className='item-image'>
-				<ProductThumbnail src={'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'} alt={'alt'} />
+				<ProductThumbnail src={imgUrl} alt={name} />
 			</div>
 			<div className='item-details-container'>
 				<div className='item-details'>
 					<div className='item-name'>
-						<span>{'Faux Leather Jacket'}</span>
+						<span>{name}</span>
 					</div>
 					<div className='item-price'>
-						<span>&#x20B9; {'1200'}</span>
+						<span>&#x20B9; {price}</span>
 					</div>
 				</div>
 				<div className='item-quantity'>
-					<QuantityControl quantity={5} onInc={() => null} onDec={() => null} />
+					<QuantityControl initialQuantity={itemQuantity} onQuantityChange={onQuantityChange} />
 				</div>
 			</div>
 		</div>
