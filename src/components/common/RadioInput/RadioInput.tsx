@@ -15,7 +15,7 @@ export const RadioInput = ({ name, label, value, onChange }: RadioInputProps): R
 				<input type='radio' name={name} onChange={onChange} value={value} />
 				<span className='radio-control'></span>
 			</span>
-			<span className='radio-label'>{label}</span>
+			<div className='radio-label'>{label}</div>
 		</label>
 	);
 };

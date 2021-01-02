@@ -1,13 +1,21 @@
-.delivery-container {
-	display: flex;
-	justify-content: flex-start;
-	flex: 0.1 1;
-	text-align: start;
+.delivery-card-container {
+	border-radius: 20px;
 	width: 55%;
-	height: auto;
 	margin: auto;
-	padding: 10px;
-	border: 1px solid #eee;
-	font-size: 24px;
+	padding: 3rem;
 	background-color: #f4f4f4;
+	width: 50rem;
+	height: 20rem;
+}
+
+.delivery-card-container .name {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 3rem;
+}
+
+.delivery-card-container .address,
+.delivery-card-container .phone {
+	font-size: 2.2rem;
+	padding-top: 1.5rem;
 }

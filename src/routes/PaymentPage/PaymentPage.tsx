@@ -7,18 +7,7 @@ export const PaymentPage = (): ReactElement => {
 		<div className='payment-container'>
 			<div className='header'>
 				Delivering To
-				<DeliveryCard
-					onChange={() => undefined}
-					name='Add'
-					value='Address'
-					label={
-						<div>
-							<div className='name'> Sagar Patel</div>
-							<div className='address'>1418 Riverwood Drive, Suite 3245 Cottonwood, DL 110092, India </div>
-						</div>
-					}
-					radioButton={false}
-				/>
+				<DeliveryCard onChange={() => undefined} name='Add' value='Address' radioButton={false} />
 				<div className='header'>Method of Payment</div>
 				<div className='payment-options'>
 					<RadioInput
