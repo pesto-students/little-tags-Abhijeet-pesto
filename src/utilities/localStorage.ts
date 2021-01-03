@@ -123,6 +123,7 @@ export const localStorageMiddleware: Middleware<Record<string, never>, RootState
 		cartLoaded.type,
 		addressLoaded.type,
 	];
+
 	switch (action.type) {
 		case loginUser.fulfilled.type: {
 			addNewUser(user.email); // if new user update users array
@@ -136,7 +137,7 @@ export const localStorageMiddleware: Middleware<Record<string, never>, RootState
 			}
 			break;
 		}
-		case logOut().type: {
+		case logOut.type: {
 			//if user logs out, clear logged in user
 			clearCurrentUser();
 			break;
