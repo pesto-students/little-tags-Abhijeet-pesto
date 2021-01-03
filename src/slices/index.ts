@@ -6,7 +6,6 @@ import addressReducer from './addressSlice';
 export { userReducer, inventoryReducer, cartReducer, addressReducer };
 
 export { loginUser, openLoginModal, hideLoginModal, logOut } from './userSlice';
-export { getInventory, selectItemsByCategory, selectItemById } from './inventorySlice';
 export {
 	addToCart,
 	deleteFromCart,
@@ -16,6 +15,7 @@ export {
 	cartLoaded,
 	selectCartItems,
 } from './cartSlice';
+export { getInventory, selectItemsByCategory, selectItemById, selectItemsBySearchQuery } from './inventorySlice';
 export {
 	addAddress,
 	deleteAddress,
