@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { auth, facebookProvider, googleProvider } from '../services/firebase';
+import { checkIfOldVisitor } from '../utilities';
 
 export interface UserState {
 	name: string | null;
@@ -17,7 +18,7 @@ const initialState: UserState = {
 	name: null,
 	email: null,
 	isLoggedIn: false,
-	showLoginModal: true,
+	showLoginModal: !checkIfOldVisitor(),
 };
 
 interface Profile {

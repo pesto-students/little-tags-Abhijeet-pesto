@@ -7,15 +7,25 @@ export { userReducer, inventoryReducer, cartReducer, addressReducer };
 
 export { loginUser, openLoginModal, hideLoginModal, logOut } from './userSlice';
 export { getInventory, selectItemsByCategory, selectItemById } from './inventorySlice';
-export { addToCart, deleteFromCart, modifyItem, getTotalItemsInCart, selectCartItems } from './cartSlice';
+export {
+	addToCart,
+	deleteFromCart,
+	modifyItem,
+	emptyCart,
+	getTotalItemsInCart,
+	cartLoaded,
+	selectCartItems,
+} from './cartSlice';
 export {
 	addAddress,
 	deleteAddress,
 	modifyAddress,
 	setDefaultAddress,
+	addressLoaded,
 	selectAllAddress,
 	selectAddressById,
 } from './addressSlice';
+
 export type { Address, DefaultAddress } from './addressSlice';
 export type { CartItem } from './cartSlice';
 export type { InventoryItem } from './inventorySlice';

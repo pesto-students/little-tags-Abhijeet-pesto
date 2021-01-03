@@ -28,13 +28,14 @@ const addressSlice = createSlice({
 		addAddress: addressAdapter.addOne,
 		deleteAddress: addressAdapter.removeOne,
 		modifyAddress: addressAdapter.updateOne,
+		addressLoaded: addressAdapter.setAll,
 		setDefaultAddress: (state, action: PayloadAction<string>) => {
 			state.defaultAddressId = action.payload;
 		},
 	},
 });
 
-export const { addAddress, deleteAddress, modifyAddress, setDefaultAddress } = addressSlice.actions;
+export const { addAddress, deleteAddress, modifyAddress, setDefaultAddress, addressLoaded } = addressSlice.actions;
 
 export const { selectAll: selectAllAddress, selectById: selectAddressById } = addressAdapter.getSelectors(
 	(state: RootState) => state.address,

@@ -19,10 +19,12 @@ const cartSlice = createSlice({
 		addToCart: cartAdapter.addOne,
 		deleteFromCart: cartAdapter.removeOne,
 		modifyItem: cartAdapter.updateOne,
+		emptyCart: cartAdapter.removeAll,
+		cartLoaded: cartAdapter.setAll,
 	},
 });
 
-export const { addToCart, deleteFromCart, modifyItem } = cartSlice.actions;
+export const { addToCart, deleteFromCart, modifyItem, emptyCart, cartLoaded } = cartSlice.actions;
 
 export const { selectAll: selectCartItems, selectById: selectCartItemById } = cartAdapter.getSelectors(
 	(state: RootState) => state.cart,
