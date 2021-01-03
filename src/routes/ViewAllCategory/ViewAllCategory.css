@@ -1,3 +1,6 @@
 .view-all-container {
 	padding: 15rem 25rem 20rem;
 }
+.no-results {
+	font-size: 40px;
+}

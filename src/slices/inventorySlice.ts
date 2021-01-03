@@ -38,8 +38,20 @@ export const { selectAll: selectAllItems, selectById: selectItemById } = invento
 
 export const selectItemsByCategory = (state: RootState, category: CATEGORIES): InventoryItem[] => {
 	// should be memoized
+
 	const allItems = selectAllItems(state);
 	return allItems.filter((item) => item.category === category);
+};
+
+export const selectItemsBySearchQuery = (state: RootState, searchQuery: string): InventoryItem[] => {
+	// should be memoized
+	const allItems = selectAllItems(state);
+	return allItems.filter(
+		(item) =>
+			item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			item.category.toLowerCase().includes(searchQuery.toLowerCase()),
+	);
 };
 
 export default inventorySlice.reducer;

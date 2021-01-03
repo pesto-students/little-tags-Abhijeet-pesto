@@ -1,1 +1,1 @@
-export { PRODUCT_CATEGORIES, CATEGORIES } from './constants';
+export { PRODUCT_CATEGORIES, CATEGORIES, STATEARR } from './constants';

@@ -77,7 +77,7 @@ export const SidebarData = [
         path: '/',
         // icon: <FaIcons.FaAddressBook />,
         cName: 'nav-text',
-        icon: "",
+        icon: "/Addaddress",
     },
     {
         title: 'Logout',
