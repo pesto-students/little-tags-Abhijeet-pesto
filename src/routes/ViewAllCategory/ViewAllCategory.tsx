@@ -29,7 +29,7 @@ export const ViewAllCategory = (): ReactElement => {
 
 	useEffect(() => {
 		setCurrentItems(itemList.length > 5 ? itemList.slice(0, 5) : itemList);
-	}, [searchQuery]);
+	}, [searchQuery, itemList]);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
