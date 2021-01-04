@@ -1,26 +1,38 @@
 import { ChangeEvent, ReactElement } from 'react';
 import { RadioInput } from '../index';
 import './DeliveryCard.css';
+import { Address } from '../../../slices';
 
 interface DeliveryCardProps {
-	name: string;
-	address?: string;
-	value: string | number;
+	address: Address;
+	selected: boolean;
 	onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 	radioButton?: boolean;
 }
-export const DeliveryCard = ({ name, value, onChange, radioButton = true }: DeliveryCardProps): ReactElement => {
+export const DeliveryCard = ({ address, selected, onChange, radioButton = true }: DeliveryCardProps): ReactElement => {
+	const { id, firstName, lastName, mainAddress, subAddress, state: addressState, pinCode, phone } = address;
+
 	const label = (
 		<>
-			<div className='name'> Sagar Patel</div>
-			<div className='address'>1418 Riverwood Drive, Suite 3245 Cottonwood, DL 110092, India </div>
-			<div className='phone'>(+91) 9876 543 210</div>
+			<div className='name'>
+				{firstName} {lastName}
+			</div>
+			<div className='main-address'>{mainAddress}</div>
+			<div className='sub-address'>{subAddress}</div>
+			<div className='address-state'>
+				{addressState}, India - {pinCode}
+			</div>
+			<div className='phone'>(+91) {phone}</div>
 		</>
 	);
 
 	return (
 		<div className='delivery-card-container'>
-			{radioButton ? <RadioInput onChange={onChange} name={name} value={value} label={label} /> : <div>{label}</div>}
+			{radioButton ? (
+				<RadioInput onChange={onChange} name='address-radio' value={id} label={label} checked={selected} />
+			) : (
+				<div>{label}</div>
+			)}
 		</div>
 	);
 };
