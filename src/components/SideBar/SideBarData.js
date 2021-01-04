@@ -1,9 +1,4 @@
 /* eslint-disable prettier/prettier */
-import * as BiIcons from 'react-icons/bi';
-import * as RiIcons from 'react-icons/ri';
-import React from 'react';
-
-
 export const SidebarData = [
     {
         title: '',
