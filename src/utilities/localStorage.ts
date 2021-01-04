@@ -9,6 +9,7 @@ import {
 	cartLoaded,
 	addressLoaded,
 	setInventoryFilter,
+	ordersLoaded,
 } from '../slices';
 
 const VISITED_KEY = '$little_tags_visited'; // if the user has visited before
@@ -16,6 +17,7 @@ const USERS_KEY = '$little_tags_users'; // list of users that have accessed the 
 const CURRENT_USER_KEY = '$little_tags_current_user'; // currently logged in user
 const CART_KEY_PREFIX = '$little_tags_cart_'; // cart items of users
 const ADDRESS_KEY_PREFIX = '$little_tags_address_'; // address of users
+const ORDERS_KEY_PREFIX = '$little_tags_orders_';
 
 export const checkIfOldVisitor = (): boolean => {
 	try {
@@ -85,6 +87,10 @@ const saveState = (userEmail: string | null, data: string, stateKey: string) => 
 				localStorage.setItem(`${ADDRESS_KEY_PREFIX}${userEmail}`, data);
 				break;
 			}
+			case 'orders': {
+				localStorage.setItem(`${ORDERS_KEY_PREFIX}${userEmail}`, data);
+				break;
+			}
 		}
 	} catch (err) {
 		return;
@@ -96,9 +102,11 @@ const loadState = (userEmail: string | null) => {
 	if (userEmail) {
 		const userCart = localStorage.getItem(`${CART_KEY_PREFIX}${userEmail}`);
 		const userAddress = localStorage.getItem(`${ADDRESS_KEY_PREFIX}${userEmail}`);
+		const userOrders = localStorage.getItem(`${ORDERS_KEY_PREFIX}${userEmail}`);
 		return {
 			cart: userCart ? JSON.parse(userCart) : undefined,
 			address: userAddress ? JSON.parse(userAddress) : undefined,
+			orders: userOrders ? JSON.parse(userOrders) : undefined,
 		};
 	}
 	return undefined;
@@ -132,6 +140,7 @@ export const localStorageMiddleware: Middleware<Record<string, never>, RootState
 		cartLoaded.type,
 		addressLoaded.type,
 		setInventoryFilter.type,
+		ordersLoaded.type,
 	];
 
 	switch (action.type) {
@@ -140,10 +149,11 @@ export const localStorageMiddleware: Middleware<Record<string, never>, RootState
 			saveCurrentUserInfo(JSON.stringify(user)); // save user name & email
 			const existingState = loadState(user.email); // if old user get stored state
 			if (existingState) {
-				const { cart, address } = existingState;
+				const { cart, address, orders } = existingState;
 				// update state for old user
 				if (cart) dispatch(cartLoaded(Object.values(cart.entities))); // passing array of cartItems as adapter.setAll is used
 				if (address) dispatch(addressLoaded(Object.values(address.entities)));
+				if (orders) dispatch(ordersLoaded(Object.values(orders.entities)));
 			}
 			break;
 		}

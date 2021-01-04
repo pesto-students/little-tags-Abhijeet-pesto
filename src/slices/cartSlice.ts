@@ -26,11 +26,11 @@ const cartSlice = createSlice({
 
 export const { addToCart, deleteFromCart, modifyItem, emptyCart, cartLoaded } = cartSlice.actions;
 
-export const { selectAll: selectCartItems, selectById: selectCartItemById } = cartAdapter.getSelectors(
+export const { selectAll: selectAllCartItems, selectById: selectCartItemById } = cartAdapter.getSelectors(
 	(state: RootState) => state.cart,
 );
 
-export const getTotalItemsInCart = createSelector(selectCartItems, (items) =>
+export const getTotalItemsInCart = createSelector(selectAllCartItems, (items) =>
 	items.reduce((total, item) => total + item.quantity, 0),
 );
 

@@ -14,8 +14,8 @@ export interface Address {
 }
 
 export interface ExtraAddressInfo {
-	defaultAddressId: string | null;
-	selectedAddressId: string | null;
+	defaultAddressId: string;
+	selectedAddressId: string;
 }
 
 const addressAdapter = createEntityAdapter<Address>();
@@ -23,8 +23,8 @@ const addressAdapter = createEntityAdapter<Address>();
 const addressSlice = createSlice({
 	name: 'address',
 	initialState: addressAdapter.getInitialState<ExtraAddressInfo>({
-		defaultAddressId: null,
-		selectedAddressId: null,
+		defaultAddressId: '',
+		selectedAddressId: '',
 	}),
 	reducers: {
 		addAddress: addressAdapter.addOne,

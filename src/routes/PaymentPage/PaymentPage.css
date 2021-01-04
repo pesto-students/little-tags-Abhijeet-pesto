@@ -1,35 +1,38 @@
-.payment-container .header {
-	text-align: center;
-	font-size: 40px;
-	padding: 15px;
+.payment-container {
+	padding: 15rem 15rem 10rem;
 }
+
+.payment-container .heading {
+	font-size: 4rem;
+	font-weight: 500;
+	font-family: GothamMedium;
+	padding-bottom: 5rem;
+}
+
+.payment-container .heading:nth-child(3) {
+	padding-top: 5rem;
+}
+
+.payment-container .delivery-card-container {
+	padding-left: 5rem;
+}
+
+.payment-container .radio:not(:last-child) {
+	margin-bottom: 2.5rem;
+}
+
 .payment-options {
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-	flex: 0.1 1;
-	text-align: start;
-	width: 55%;
-	height: auto;
-	margin: auto;
-	padding: 10px;
-
-	font-size: 24px;
-}
-.name {
-	font-weight: bold;
-}
-.payment-padding {
-	padding-left: 20px;
+	display: inline-block;
 }
 
-.proccedBtnPadding {
-	padding-top: 25px;
+.payment-option-label {
+	padding-left: 1.5rem;
 }
-.proccedButton {
-	width: 50%;
-	font-size: 20px;
-	height: 50px;
-	background-color: black;
-	color: white;
+
+.payment-container .proceed-btn-container {
+	padding-top: 5rem;
+}
+
+.payment-container .proceed-btn-container .btn {
+	width: 40rem;
 }

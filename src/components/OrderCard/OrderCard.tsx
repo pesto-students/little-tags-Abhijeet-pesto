@@ -3,21 +3,28 @@ import './OrderCard.css';
 import { Button } from '../common';
 import { ProductThumbnail } from '../ProductThumbnail/ProductThumbnail';
 
-export const OrderCard = (): ReactElement => {
+interface OrderCardProps {
+	productName: string;
+	price: number;
+	orderDate: string;
+	productImg: string;
+}
+
+export const OrderCard = ({ productName, price, orderDate, productImg }: OrderCardProps): ReactElement => {
 	return (
 		<div className='order-card'>
 			<div className='order-image'>
-				<ProductThumbnail src={'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'} alt={'alt'} />
+				<ProductThumbnail src={productImg} alt={'alt'} />
 			</div>
 			<div className='order-details'>
 				<div className='order-name'>
-					<span>{'Faux Leather Jacket'}</span>
+					<span>{productName}</span>
 				</div>
 				<div className='order-price'>
-					<span>&#x20B9; {'1200'}</span>
+					<span>&#x20B9; {price}</span>
 				</div>
 				<div className='order-date'>
-					<span>2 September 2020</span>
+					<span>{orderDate}</span>
 				</div>
 			</div>
 			<div className='reorder'>
