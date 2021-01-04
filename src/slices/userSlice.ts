@@ -22,6 +22,7 @@ const initialState: UserState = {
 };
 
 interface Profile {
+	first_name: string;
 	given_name: string;
 	email: string;
 }
@@ -29,7 +30,9 @@ interface Profile {
 export const loginUser = createAsyncThunk('user/login', async (provider: 'google' | 'facebook') => {
 	const response = await auth.signInWithPopup(provider === 'google' ? googleProvider : facebookProvider);
 	if (response.additionalUserInfo) {
-		const { given_name: name, email } = response.additionalUserInfo.profile as Profile;
+		const profile = response.additionalUserInfo.profile as Profile;
+		const email = profile.email;
+		const name = provider === 'google' ? profile.given_name : profile.first_name;
 		return { name, email };
 	} else if (response.user) {
 		const { displayName, email } = response.user;
