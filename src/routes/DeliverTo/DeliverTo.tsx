@@ -13,7 +13,7 @@ export const DeliverTo = (): ReactElement => {
 	const defaultAddressId = useSelector((state: RootState) => state.address.defaultAddressId);
 
 	const [selectedAddressId, setSelectedAddressId] = useState(
-		defaultAddressId.length !== 0 ? defaultAddressId : allAddresses[0].id,
+		defaultAddressId.length !== 0 ? defaultAddressId : allAddresses.length > 0 ? allAddresses[0].id : '',
 	);
 	const history = useHistory();
 	const dispatch = useDispatch();
