@@ -1,6 +1,15 @@
 import { Middleware, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../rootReducer';
-import { loginUser, logOut, openLoginModal, hideLoginModal, getInventory, cartLoaded, addressLoaded } from '../slices';
+import {
+	loginUser,
+	logOut,
+	openLoginModal,
+	hideLoginModal,
+	getInventory,
+	cartLoaded,
+	addressLoaded,
+	setInventoryFilter,
+} from '../slices';
 
 const VISITED_KEY = '$little_tags_visited'; // if the user has visited before
 const USERS_KEY = '$little_tags_users'; // list of users that have accessed the app
@@ -122,6 +131,7 @@ export const localStorageMiddleware: Middleware<Record<string, never>, RootState
 		hideLoginModal.type,
 		cartLoaded.type,
 		addressLoaded.type,
+		setInventoryFilter.type,
 	];
 
 	switch (action.type) {

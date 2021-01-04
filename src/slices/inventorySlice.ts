@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, createEntityAdapter, PayloadAction, createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../rootReducer';
 import { CATEGORIES } from '../utilities';
 
@@ -9,6 +9,13 @@ export interface InventoryItem {
 	description: string;
 	category: CATEGORIES;
 	image: string;
+}
+
+export interface InventoryFilter {
+	filter: {
+		filterBy: 'category' | 'searchQuery';
+		filterValue: CATEGORIES | string;
+	};
 }
 
 const inventoryAdapter = createEntityAdapter<InventoryItem>({
@@ -23,8 +30,18 @@ export const getInventory = createAsyncThunk('inventory/loadItems', async () => 
 
 const inventorySlice = createSlice({
 	name: 'inventory',
-	initialState: inventoryAdapter.getInitialState(),
-	reducers: {},
+	initialState: inventoryAdapter.getInitialState<InventoryFilter>({
+		filter: {
+			filterBy: 'category',
+			filterValue: '',
+		},
+	}),
+	reducers: {
+		setInventoryFilter: (state, action: PayloadAction<InventoryFilter>) => {
+			const { filter } = action.payload;
+			state.filter = filter;
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(getInventory.fulfilled, (state, action) => {
 			inventoryAdapter.setAll(state, action.payload);
@@ -32,26 +49,29 @@ const inventorySlice = createSlice({
 	},
 });
 
+export const { setInventoryFilter } = inventorySlice.actions;
+
 export const { selectAll: selectAllItems, selectById: selectItemById } = inventoryAdapter.getSelectors(
 	(state: RootState) => state.inventory,
 );
 
-export const selectItemsByCategory = (state: RootState, category: CATEGORIES): InventoryItem[] => {
-	// should be memoized
-
-	const allItems = selectAllItems(state);
-	return allItems.filter((item) => item.category === category);
-};
-
-export const selectItemsBySearchQuery = (state: RootState, searchQuery: string): InventoryItem[] => {
-	// should be memoized
-	const allItems = selectAllItems(state);
-	return allItems.filter(
-		(item) =>
-			item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			item.category.toLowerCase().includes(searchQuery.toLowerCase()),
-	);
-};
+export const selectFilteredItems = createSelector(
+	selectAllItems,
+	(state: RootState) => state.inventory.filter,
+	(items, { filterBy, filterValue }) => {
+		if (filterValue.length === 0) {
+			return items;
+		} else if (filterBy === 'category') {
+			return items.filter((item) => item.category === filterValue);
+		} else {
+			return items.filter(
+				(item) =>
+					item.description.toLowerCase().includes(filterValue.toLowerCase()) ||
+					item.title.toLowerCase().includes(filterValue.toLowerCase()) ||
+					item.category.toLowerCase().includes(filterValue.toLowerCase()),
+			);
+		}
+	},
+);
 
 export default inventorySlice.reducer;

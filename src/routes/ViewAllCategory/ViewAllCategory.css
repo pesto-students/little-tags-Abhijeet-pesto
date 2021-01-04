@@ -4,3 +4,7 @@
 .no-results {
 	font-size: 40px;
 }
+
+.category-title {
+	text-transform: capitalize;
+}
