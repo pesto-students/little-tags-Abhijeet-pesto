@@ -1,5 +1,4 @@
-// eslint-disable-next-line react-hooks/exhaustive-deps
-import { ReactElement, useState, useCallback } from 'react';
+import { ReactElement, useState, useCallback, useEffect } from 'react';
 import './Pagination.css';
 import classNames from 'classnames';
 
@@ -26,22 +25,8 @@ type PaginationProps = {
 export const Pagination = ({ totalItems, itemsPerPage, onPageChange }: PaginationProps): ReactElement => {
 	const [pager, setPager] = useState<Pager>({} as Pager);
 
-	// useEffect(() => {
-	// 	setPage(1);
-	// }, []);
-
-	const setPage = (page: number) => {
-		if (page < 1 || page > pager.noOfPages || page === pager.currentPage) {
-			return;
-		}
-
-		const newPager = getPager(totalItems, page, itemsPerPage);
-		setPager(newPager);
-		onPageChange(newPager);
-	};
-
 	const getPager = useCallback((totalItems: number, currentPage: number, pageSize: number): Pager => {
-		const totalPages = totalItems / pageSize;
+		const totalPages = Math.ceil(totalItems / pageSize);
 		const startPage = Math.max(1, Math.min(totalPages - 4, currentPage - 2));
 		const endPage = Math.min(totalPages, Math.max(5, currentPage + 2));
 
@@ -59,6 +44,21 @@ export const Pagination = ({ totalItems, itemsPerPage, onPageChange }: Paginatio
 			noOfPages: totalPages,
 		};
 	}, []);
+
+	useEffect(() => {
+		const newPager = getPager(totalItems, 1, itemsPerPage);
+		setPager(newPager);
+	}, [totalItems, itemsPerPage, getPager]);
+
+	const setPage = (page: number) => {
+		if (page < 1 || page > pager.noOfPages || page === pager.currentPage) {
+			return;
+		}
+
+		const newPager = getPager(totalItems, page, itemsPerPage);
+		setPager(newPager);
+		onPageChange(newPager);
+	};
 
 	return (
 		<div className='pagination-container'>

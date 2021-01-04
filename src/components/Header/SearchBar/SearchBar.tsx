@@ -3,17 +3,42 @@ import { InputGroup, Button, FormControl } from 'react-bootstrap';
 import { BsSearch } from 'react-icons/bs';
 import { useHistory } from 'react-router-dom';
 import { MouseEvent, useState, KeyboardEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import { setInventoryFilter } from '../../../slices';
 
 const SearchBar = (): JSX.Element => {
 	const [search, setSearch] = useState('');
 	const history = useHistory();
+	const dispatch = useDispatch();
+
 	const onSearchClick = (event: MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
-		history.push(`/viewall/search/${search}`);
+		if (search.length === 0) return;
+		dispatch(
+			setInventoryFilter({
+				filter: {
+					filterBy: 'searchQuery',
+					filterValue: search,
+				},
+			}),
+		);
+		history.push(`/viewall`);
+		setSearch('');
 	};
+
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+		if (search.length === 0) return;
 		if (event.key === 'Enter') {
-			history.push(`/viewall/search/${search}`);
+			dispatch(
+				setInventoryFilter({
+					filter: {
+						filterBy: 'searchQuery',
+						filterValue: search,
+					},
+				}),
+			);
+			history.push(`/viewall`);
+			setSearch('');
 		}
 	};
 

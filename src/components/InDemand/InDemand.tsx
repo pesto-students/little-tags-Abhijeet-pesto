@@ -4,12 +4,23 @@ import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard, { Product } from '../ProductCard/ProductCard';
 import { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setInventoryFilter } from '../../slices';
 
 export const InDemand = (): ReactElement => {
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const onCardClick = (product: Product) => {
-		history.push(`/viewall/${product.category}`);
+		dispatch(
+			setInventoryFilter({
+				filter: {
+					filterBy: 'category',
+					filterValue: product.category,
+				},
+			}),
+		);
+		history.push(`/viewall`);
 	};
 
 	return (
