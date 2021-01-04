@@ -20,6 +20,11 @@
 	color: #adb5bd;
 }
 
+.little-tags-btn:disabled {
+	opacity: 0.8;
+	cursor: not-allowed;
+}
+
 .button-icon-container {
 	flex: 0.5 1 auto;
 	display: flex;
