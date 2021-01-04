@@ -7,3 +7,4 @@ export { DeliverTo } from './DeliverTo/DeliverTo';
 export { PaymentPage } from './PaymentPage/PaymentPage';
 export { AddAddress } from './AddAddress/AddAddress';
 export { LoginPage } from './LoginPage/LoginPage';
+export { ThankYou } from './ThankYou/ThankYou';

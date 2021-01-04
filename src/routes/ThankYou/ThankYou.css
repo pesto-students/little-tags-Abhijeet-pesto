@@ -1,0 +1,20 @@
+.thankyou-container {
+	padding: 15rem;
+}
+
+.thankyou-container .text {
+	font-family: GothamMedium;
+	font-size: 5rem;
+	font-weight: 500;
+}
+
+.thankyou-container .button {
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+	border: solid 1px black;
+	background: white;
+	border-radius: 5px;
+	padding: 2rem 4rem;
+	margin-top: 60px;
+	font-family: GothamMedium;
+	font-size: 2.4rem;
+}

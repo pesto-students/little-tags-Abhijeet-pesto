@@ -3,13 +3,19 @@ import { RadioInput } from '../index';
 import './DeliveryCard.css';
 import { Address } from '../../../slices';
 
-interface DeliveryCardProps {
+const defaultProps = {
+	showRadioBtn: true,
+	selected: false,
+};
+
+type DeliveryCardProps = {
 	address: Address;
+	showRadioBtn: boolean;
 	selected: boolean;
-	onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-	radioButton?: boolean;
-}
-export const DeliveryCard = ({ address, selected, onChange, radioButton = true }: DeliveryCardProps): ReactElement => {
+	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+} & typeof defaultProps;
+
+export const DeliveryCard = ({ address, selected, showRadioBtn, onChange }: DeliveryCardProps): ReactElement => {
 	const { id, firstName, lastName, mainAddress, subAddress, state: addressState, pinCode, phone } = address;
 
 	const label = (
@@ -28,7 +34,7 @@ export const DeliveryCard = ({ address, selected, onChange, radioButton = true }
 
 	return (
 		<div className='delivery-card-container'>
-			{radioButton ? (
+			{showRadioBtn && onChange ? (
 				<RadioInput onChange={onChange} name='address-radio' value={id} label={label} checked={selected} />
 			) : (
 				<div>{label}</div>
@@ -36,3 +42,5 @@ export const DeliveryCard = ({ address, selected, onChange, radioButton = true }
 		</div>
 	);
 };
+
+DeliveryCard.defaultProps = defaultProps;

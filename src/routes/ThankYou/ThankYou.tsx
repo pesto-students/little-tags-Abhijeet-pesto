@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
 import './ThankYou.css';
 import * as FaIcons from 'react-icons/fa';
+
 export const ThankYou = (): ReactElement => {
 	const history = useHistory();
 	return (
@@ -14,7 +15,7 @@ export const ThankYou = (): ReactElement => {
 				<button
 					className='button'
 					onClick={() => {
-						history.push('./');
+						history.push('/');
 					}}
 				>
 					Continue shopping

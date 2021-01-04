@@ -1,5 +1,5 @@
-import { Button, QuantityControl } from './common';
-export { Button, QuantityControl };
+import { Button, QuantityControl, DeliveryCard, RadioInput } from './common';
+export { Button, QuantityControl, DeliveryCard, RadioInput };
 export { Header } from './Header/Header';
 export { InDemand } from './InDemand/InDemand';
 export { Layout } from './Layout/Layout';
@@ -14,4 +14,3 @@ export { ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
 export { LoginModal } from './LoginModal/LoginModal';
 export { Footer } from './Footer/Footer';
 export type { Pager } from './Pagination/Pagination';
-export { ThankYou } from './ThankYou/ThankYou';

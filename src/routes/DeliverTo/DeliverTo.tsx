@@ -1,7 +1,7 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
 import './DeliverTo.css';
 import * as GrIcons from 'react-icons/gr';
-import { DeliveryCard, Button } from '../../components/common';
+import { DeliveryCard, Button } from '../../components';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../rootReducer';
@@ -12,7 +12,9 @@ export const DeliverTo = (): ReactElement => {
 	const allAddresses = useSelector((state: RootState) => selectAllAddress(state));
 	const defaultAddressId = useSelector((state: RootState) => state.address.defaultAddressId);
 
-	const [selectedAddressId, setSelectedAddressId] = useState(defaultAddressId ? defaultAddressId : allAddresses[0].id);
+	const [selectedAddressId, setSelectedAddressId] = useState(
+		defaultAddressId.length !== 0 ? defaultAddressId : allAddresses.length > 0 ? allAddresses[0].id : '',
+	);
 	const history = useHistory();
 	const dispatch = useDispatch();
 

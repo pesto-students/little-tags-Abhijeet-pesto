@@ -61,7 +61,7 @@ export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 				<div className='hamburger-container'>
 					<div className='navbar'>
 						<span className='menu-bars'>
-							<FaIcons.FaBars onClick={showSidebar} />
+							<FaIcons.FaBars className='hamburger' onClick={showSidebar} />
 							{sidebarHeader ? (
 								<div>
 									<div className='blur-filter'></div>

@@ -4,10 +4,10 @@ import { CartItemCard, Button, Pagination, Pager } from '../../components';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../rootReducer';
-import { selectCartItems, modifyItem, CartItem } from '../../slices';
+import { selectAllCartItems, modifyItem, CartItem } from '../../slices';
 
 export const Cart = (): ReactElement => {
-	const itemsInCart = useSelector((state: RootState) => selectCartItems(state));
+	const itemsInCart = useSelector((state: RootState) => selectAllCartItems(state));
 	const [currentItems, setCurrentItems] = useState<Array<CartItem>>(() => {
 		return itemsInCart.length > 5 ? itemsInCart.slice(0, 5) : itemsInCart;
 	});
