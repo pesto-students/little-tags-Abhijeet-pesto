@@ -32,5 +32,16 @@
 }
 
 .deliver-container .proceed-btn {
-	width: 3.5rem;
+	width: 35rem;
+}
+
+.no-address {
+	font-size: 3.5rem;
+}
+
+.custom-height {
+	height: calc(100% - 300px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }

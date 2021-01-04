@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
-import { DeliveryCard, RadioInput } from '../../components/common/index';
+import { ReactElement } from 'react';
+// import { RadioInput } from '../../components/common/index';
 import './PaymentPage.css';
 
 export const PaymentPage = (): ReactElement => {
@@ -7,10 +7,10 @@ export const PaymentPage = (): ReactElement => {
 		<div className='payment-container'>
 			<div className='header'>
 				Delivering To
-				<DeliveryCard onChange={() => undefined} name='Add' value='Address' radioButton={false} />
+				{/* <DeliveryCard onChange={() => undefined} name='Add' value='Address' radioButton={false} /> */}
 				<div className='header'>Method of Payment</div>
 				<div className='payment-options'>
-					<RadioInput
+					{/* <RadioInput
 						onChange={() => undefined}
 						name='Payment'
 						value='Payment'
@@ -27,7 +27,7 @@ export const PaymentPage = (): ReactElement => {
 						name='Payment'
 						value='Payment'
 						label={<div className='payment-padding'> Pay Pal</div>}
-					/>
+					/> */}
 				</div>
 				<div className='proccedBtnPadding'>
 					<button className='proccedButton'>Proceed to payment</button>

@@ -29,18 +29,13 @@ function App(): ReactElement {
 						<Route path='/product/:productId'>
 							<Product />
 						</Route>
-						<Route path='/viewall/search/:searchQuery'>
+						<Route path='/viewall'>
 							<ViewAllCategory />
-						</Route>
-						<Route path='/viewall/:category'>
-							<ViewAllCategory />
-						</Route>
-						<Route path='/Addaddress'>
-							<AddAddress />
 						</Route>
 						<ProtectedRoute path='/orders' Component={Orders} isLoggedIn={isLoggedIn} />
 						<ProtectedRoute path='/cart' Component={Cart} isLoggedIn={isLoggedIn} />
 						<ProtectedRoute path='/deliverto' Component={DeliverTo} isLoggedIn={isLoggedIn} />
+						<ProtectedRoute path='/Addaddress' Component={AddAddress} isLoggedIn={isLoggedIn} />
 						<Route path='/'>
 							<Home />
 						</Route>

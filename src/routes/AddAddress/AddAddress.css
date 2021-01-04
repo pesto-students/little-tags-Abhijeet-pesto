@@ -1,12 +1,14 @@
+.address-container {
+	padding: 15rem 20rem 10rem;
+}
+
 .addInput {
-	display: flex;
-	justify-content: space-around;
-	text-align: left;
 	font-size: 20px;
 	font-family: Gotham;
 	padding: 10px;
 	font-weight: bold;
 }
+
 .addInputBox {
 	align-items: left;
 	width: 100%;
@@ -14,34 +16,60 @@
 	font-size: 20px;
 	font-family: Gotham;
 	border-radius: 10px;
+	padding: 1rem;
 }
+
 .address-container .header {
-	text-align: center;
-	font-size: 36px;
+	font-size: 5rem;
+	font-weight: 500;
+	padding-bottom: 5rem;
 }
-.AddAddressbutton {
-	width: 50%;
-	font-size: 20px;
-	height: 50px;
-	background-color: black;
-	color: white;
+
+.add-btn-container {
+	padding-top: 2.5rem;
 }
-.AddAddressbtn {
-	padding-top: 25px;
+
+.address-container .add-btn-container .btn {
+	width: 35rem;
 }
+
+.addAddressRow {
+	display: flex;
+}
+
+.addAddressRow .addAddressCol:first-child {
+	padding-right: 10rem;
+}
+
+.addAddressRow .addAddressCol:last-child {
+	padding-left: 10rem;
+}
+
 .addAddressCol {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	flex: 1 1 auto;
+	text-align: left;
 }
-.addAddressRow {
-	display: flex;
-	flex-direction: row;
 
-	justify-content: space-around;
-}
 .field-required {
 	font-size: 15px;
 	color: red;
 	text-align: left;
+}
+
+.address-checkbox-conatiner {
+	font-size: 2.4rem;
+	padding-top: 2.5rem;
+}
+
+.address-checkbox-conatiner label input {
+	width: 2rem;
+	height: 2rem;
+	vertical-align: middle;
+}
+
+.address-checkbox-conatiner label span {
+	padding-left: 1rem;
+	vertical-align: middle;
 }

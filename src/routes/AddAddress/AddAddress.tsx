@@ -1,21 +1,27 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
 import { STATEARR } from '../../utilities';
 import './AddAddress.css';
+import { Button } from '../../components';
+import { v4 as uniqueId } from 'uuid';
+import { Address, addAddress, setDefaultAddress } from '../../slices';
+import { useDispatch } from 'react-redux';
 
 export const AddAddress = (): ReactElement => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [emailId, setEmailId] = useState('');
 	const [phoneNo, setphoneNo] = useState('');
-
 	const [addressLine1, setAddressLine1] = useState('');
 	const [addressLine2, setAddressLine2] = useState('');
-	const [stateAdd, setStateAdd] = useState('');
-	const [pincode, setPincode] = useState('');
-
+	const [stateAdd, setStateAdd] = useState(STATEARR[0]);
+	const [pinCode, setPinCode] = useState('');
+	const [isDefault, setIsDefault] = useState(false);
 	const [isSaveClicked, setisSaveClicked] = useState(false);
 
+	const dispatch = useDispatch();
+
 	const numberRegex = /^[0-9\b]+$/;
+
 	const validateDetails = () => {
 		if (
 			firstName !== '' &&
@@ -25,9 +31,24 @@ export const AddAddress = (): ReactElement => {
 			addressLine1 !== '' &&
 			addressLine2 !== '' &&
 			stateAdd !== '' &&
-			pincode !== ''
+			pinCode !== ''
 		) {
-			console.log('Validated');
+			const id = uniqueId();
+			const address: Address = {
+				id,
+				firstName: firstName.trim(),
+				lastName: lastName.trim(),
+				email: emailId,
+				phone: Number(phoneNo),
+				mainAddress: addressLine1.trim(),
+				subAddress: addressLine2.trim(),
+				state: stateAdd,
+				pinCode: Number(pinCode),
+			};
+			dispatch(addAddress(address));
+			if (isDefault) {
+				dispatch(setDefaultAddress(id));
+			}
 			setisSaveClicked(false);
 		} else {
 			setisSaveClicked(true);
@@ -84,8 +105,6 @@ export const AddAddress = (): ReactElement => {
 					/>{' '}
 					{isSaveClicked ? phoneNo === '' ? <span className='field-required'>This field is required</span> : '' : ''}
 				</div>
-				<div className='addAddressCol'></div>
-
 				<div className='addAddressCol'>
 					<div className='addInput '>Address line 1</div>
 					<input
@@ -132,7 +151,11 @@ export const AddAddress = (): ReactElement => {
 						}}
 					>
 						{STATEARR.map((item, index) => {
-							return <option key={index}>{item}</option>;
+							return (
+								<option key={item + index} value={item}>
+									{item}
+								</option>
+							);
 						})}
 					</select>
 
@@ -140,21 +163,32 @@ export const AddAddress = (): ReactElement => {
 					<input
 						className='addInputBox'
 						type='text'
-						value={pincode}
+						value={pinCode}
 						maxLength={6}
 						onChange={(event: ChangeEvent<HTMLInputElement>) => {
 							if (event.target.value === '' || numberRegex.test(event.target.value)) {
-								setPincode(event.target.value);
+								setPinCode(event.target.value);
 							}
 						}}
 					/>
-					{isSaveClicked ? pincode === '' ? <span className='field-required'>This field is required</span> : '' : ''}
+					{isSaveClicked ? pinCode === '' ? <span className='field-required'>This field is required</span> : '' : ''}
 				</div>
 			</div>
-			<div className='AddAddressbtn'>
-				<button className='AddAddressbutton' onClick={validateDetails}>
-					Add informations
-				</button>
+			<div className='address-checkbox-conatiner'>
+				<label>
+					<input
+						type='checkbox'
+						name='defaultAddress'
+						checked={isDefault}
+						onChange={(e) => setIsDefault(e.target.checked)}
+					/>
+					<span>Set as default address</span>
+				</label>
+			</div>
+			<div className='add-btn-container'>
+				<Button type='button' onClick={validateDetails}>
+					ADD INFORMATION
+				</Button>
 			</div>
 		</div>
 	);

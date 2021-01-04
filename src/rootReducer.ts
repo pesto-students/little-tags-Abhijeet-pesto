@@ -4,18 +4,19 @@ import {
 	UserState,
 	inventoryReducer,
 	InventoryItem,
+	InventoryFilter,
 	cartReducer,
 	CartItem,
 	addressReducer,
 	Address,
-	DefaultAddress,
+	ExtraAddressInfo,
 } from './slices';
 
 const rootReducer: Reducer<{
 	user: UserState;
-	inventory: EntityState<InventoryItem>;
+	inventory: EntityState<InventoryItem> & InventoryFilter;
 	cart: EntityState<CartItem>;
-	address: EntityState<Address> & DefaultAddress;
+	address: EntityState<Address> & ExtraAddressInfo;
 }> = combineReducers({
 	user: userReducer,
 	inventory: inventoryReducer,

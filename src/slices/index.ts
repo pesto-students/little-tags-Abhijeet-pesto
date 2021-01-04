@@ -15,18 +15,20 @@ export {
 	cartLoaded,
 	selectCartItems,
 } from './cartSlice';
-export { getInventory, selectItemsByCategory, selectItemById, selectItemsBySearchQuery } from './inventorySlice';
+export { getInventory, setInventoryFilter, selectFilteredItems, selectItemById } from './inventorySlice';
 export {
 	addAddress,
 	deleteAddress,
 	modifyAddress,
 	setDefaultAddress,
+	setSelectedAddress,
 	addressLoaded,
 	selectAllAddress,
 	selectAddressById,
 } from './addressSlice';
 
-export type { Address, DefaultAddress } from './addressSlice';
+export type { InventoryFilter } from './inventorySlice';
+export type { Address, ExtraAddressInfo } from './addressSlice';
 export type { CartItem } from './cartSlice';
 export type { InventoryItem } from './inventorySlice';
 export type { UserState } from './userSlice';
