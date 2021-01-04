@@ -99,11 +99,8 @@
 	right: -0.625em;
 }
 .blur-filter {
+	filter: blur(5px);
 	-webkit-filter: blur(2px);
-	-moz-filter: blur(2px);
-	-o-filter: blur(2px);
-	-ms-filter: blur(2px);
-	filter: blur(2px);
 }
 .btn_bg {
 	width: 100%;

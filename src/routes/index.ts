@@ -6,3 +6,4 @@ export { Orders } from './Orders/Orders';
 export { DeliverTo } from './DeliverTo/DeliverTo';
 export { PaymentPage } from './PaymentPage/PaymentPage';
 export { AddAddress } from './AddAddress/AddAddress';
+export { LoginPage } from './LoginPage/LoginPage';
