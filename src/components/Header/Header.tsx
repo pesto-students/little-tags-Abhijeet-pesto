@@ -59,16 +59,19 @@ export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 			>
 				{sidebarHeader ? <div className='blur-filter'></div> : ''}
 				<div className='hamburger-container'>
-					<>
-						<div>
-							<div className='navbar'>
-								<span className='menu-bars'>
-									<FaIcons.FaBars onClick={showSidebar} />
-									{sidebarHeader ? <SideBar sidebar={sidebarHeader} /> : null}
-								</span>
-							</div>
-						</div>
-					</>
+					<div className='navbar'>
+						<span className='menu-bars'>
+							<FaIcons.FaBars onClick={showSidebar} />
+							{sidebarHeader ? (
+								<div>
+									<div className='blur-filter'></div>
+									<SideBar sidebar={sidebarHeader} isLoggedIn={isLoggedIn} userName={userName} />
+								</div>
+							) : (
+								''
+							)}
+						</span>
+					</div>
 				</div>
 				<div className='brand-container'>
 					<span onClick={() => history.push('/')}>Little Tags</span>

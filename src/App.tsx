@@ -1,7 +1,7 @@
 import { ReactElement, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Home, Cart, ViewAllCategory, Product, Orders, DeliverTo, AddAddress } from './routes';
+import { Home, Cart, ViewAllCategory, Product, Orders, DeliverTo, AddAddress, LoginPage } from './routes';
 import { Layout, ProtectedRoute, LoginModal } from './components';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -35,9 +35,11 @@ function App(): ReactElement {
 						<Route path='/viewall/:category'>
 							<ViewAllCategory />
 						</Route>
-						<Route path='/Addaddress'>
-							<AddAddress />
+
+						<Route path='/LoginPage'>
+							<LoginPage />
 						</Route>
+						<ProtectedRoute path='/Addaddress' Component={AddAddress} isLoggedIn={isLoggedIn} />
 						<ProtectedRoute path='/orders' Component={Orders} isLoggedIn={isLoggedIn} />
 						<ProtectedRoute path='/cart' Component={Cart} isLoggedIn={isLoggedIn} />
 						<ProtectedRoute path='/deliverto' Component={DeliverTo} isLoggedIn={isLoggedIn} />

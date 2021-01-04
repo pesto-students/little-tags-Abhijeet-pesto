@@ -1,5 +1,6 @@
 import { ComponentType, ReactElement } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { LoginPage } from '../../routes';
 
 interface ProtectedRouteProps {
 	Component: ComponentType;
@@ -13,6 +14,8 @@ export const ProtectedRoute = ({ Component, isLoggedIn, path }: ProtectedRoutePr
 			<Component />
 		</Route>
 	) : (
-		<Redirect to={{ pathname: '/login' }} />
+		<Route>
+			<LoginPage />
+		</Route>
 	);
 };

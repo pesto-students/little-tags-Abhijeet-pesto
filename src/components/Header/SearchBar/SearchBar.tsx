@@ -10,10 +10,12 @@ const SearchBar = (): JSX.Element => {
 	const onSearchClick = (event: MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 		history.push(`/viewall/search/${search}`);
+		setSearch('');
 	};
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === 'Enter') {
 			history.push(`/viewall/search/${search}`);
+			setSearch('');
 		}
 	};
 
