@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as AiIcons from 'react-icons/ai';
-import { SidebarData } from './SideBarData';
+import { SidebarData, LoggedInUser } from './SideBarData';
 import './SideBar.css';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../slices';
@@ -55,15 +55,16 @@ export const SideBar = ({ sidebar, isLoggedIn, userName }: Props): ReactElement 
 					</span>
 					<span className='nav-header'>Little Tags</span>
 				</li>
-				<li key='userName'>
-					<span className='nav-text nav-user'>
-						<BiIcons.BiUserCircle size={30} />
-						<span>
-							Hy! {'  '}
-							{isLoggedIn ? userName : ''}
+				{isLoggedIn ? (
+					<li key='userName'>
+						<span className='nav-text nav-user'>
+							<BiIcons.BiUserCircle size={30} />
+							<span>Hy! {userName}</span>
 						</span>
-					</span>
-				</li>
+					</li>
+				) : (
+					''
+				)}
 				{SidebarData.map((item, index) => {
 					return item.title !== '' ? (
 						<li key={index} className={item.cName}>
@@ -76,12 +77,30 @@ export const SideBar = ({ sidebar, isLoggedIn, userName }: Props): ReactElement 
 						<hr></hr>
 					);
 				})}
-				<li key='logoutBtn'>
-					<button className='nav-text logout' onClick={onLogout}>
-						<RiIcons.RiLogoutCircleFill color='red' size={20} />
-						Logout
-					</button>
-				</li>
+				{isLoggedIn
+					? LoggedInUser.map((item, index) => {
+							return item.title !== '' ? (
+								<li key={index} className={item.cName}>
+									<span onClick={() => onClickHistory(item)}>
+										{item.icon}
+										<span>{item.title}</span>
+									</span>
+								</li>
+							) : (
+								<hr></hr>
+							);
+					  })
+					: ''}
+				{isLoggedIn ? (
+					<li key='logoutBtn'>
+						<button className='nav-text logout' onClick={onLogout}>
+							<RiIcons.RiLogoutCircleFill color='red' size={20} />
+							Logout
+						</button>
+					</li>
+				) : (
+					''
+				)}
 			</ul>
 		</nav>
 	);

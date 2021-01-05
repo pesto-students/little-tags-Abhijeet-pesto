@@ -49,7 +49,8 @@ export const SidebarData = [
         icon: '',
         category: ''
 
-    },
+    }];
+export const LoggedInUser = [
     {
         title: 'Past Orders',
         path: '/orders',
