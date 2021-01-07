@@ -1,0 +1,47 @@
+.deliver-container {
+	padding: 15rem 0 10rem;
+}
+
+.deliver-container .header {
+	font-size: 5rem;
+	padding-bottom: 3rem;
+}
+
+.deliver-container .delivery-card-container:not(:last-child) {
+	margin-bottom: 4.5rem;
+}
+
+.add-address-btn-container {
+	padding: 3rem 0;
+}
+
+.add-address-btn {
+	font-size: 2.4rem;
+	font-weight: 500;
+	border: none;
+	background: none;
+}
+
+.add-address-btn span:first-child {
+	margin-right: 1.5rem;
+}
+
+.add-address-btn span svg {
+	position: relative;
+	bottom: 3px;
+}
+
+.deliver-container .proceed-btn {
+	width: 35rem;
+}
+
+.no-address {
+	font-size: 3.5rem;
+}
+
+.custom-height {
+	height: calc(100% - 300px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

@@ -1,0 +1,26 @@
+.delivery-card-container {
+	border-radius: 20px;
+	margin: auto;
+	padding: 3rem;
+	background-color: #f4f4f4;
+	width: 50rem;
+	text-align: left;
+	/* height: 20rem; */
+}
+
+.delivery-card-container .name {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 3rem;
+}
+
+.delivery-card-container .main-address,
+.delivery-card-container .phone {
+	font-size: 2.2rem;
+	padding-top: 1.5rem;
+}
+
+.sub-address,
+.address-state {
+	font-size: 2.2rem;
+}

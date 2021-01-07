@@ -1,0 +1,38 @@
+.payment-container {
+	padding: 15rem 15rem 10rem;
+}
+
+.payment-container .heading {
+	font-size: 4rem;
+	font-weight: 500;
+	font-family: GothamMedium;
+	padding-bottom: 5rem;
+}
+
+.payment-container .heading:nth-child(3) {
+	padding-top: 5rem;
+}
+
+.payment-container .delivery-card-container {
+	padding-left: 5rem;
+}
+
+.payment-container .radio:not(:last-child) {
+	margin-bottom: 2.5rem;
+}
+
+.payment-options {
+	display: inline-block;
+}
+
+.payment-option-label {
+	padding-left: 1.5rem;
+}
+
+.payment-container .proceed-btn-container {
+	padding-top: 5rem;
+}
+
+.payment-container .proceed-btn-container .btn {
+	width: 40rem;
+}

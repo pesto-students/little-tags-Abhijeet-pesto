@@ -1,0 +1,31 @@
+.loginPage-container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 100px;
+}
+.loginPage-container .heading {
+	font-size: 5rem;
+	font-weight: 500;
+	padding-top: 5rem;
+}
+
+.loginPage-container .sub-heading {
+	font-size: 3rem;
+	font-weight: 300;
+	padding: 3rem 0;
+}
+.loginPage-container.login-choices .btn:last-child {
+	margin-top: 2rem;
+}
+
+.loginPage-container .login-choices {
+	padding: 3rem 2.5rem 5rem;
+}
+
+.loginPage-container .btn {
+	width: 75%;
+	font-size: 3rem;
+	padding: 2rem 8rem;
+	margin-top: 1rem;
+}
