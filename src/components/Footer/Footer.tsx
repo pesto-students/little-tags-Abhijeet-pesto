@@ -1,7 +1,7 @@
 import './Footer.css';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { setInventoryFilter } from '../../slices';
+import { setInventoryFilter, NewToastParams, addNewToast } from '../../slices';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -21,6 +21,13 @@ export const Footer = (): JSX.Element => {
 			);
 			history.push(`/viewall`);
 		}
+	};
+	const onSubClick = () => {
+		const message: NewToastParams = {
+			title: 'success',
+			message: 'Subscribed to Newsletter',
+		};
+		dispatch(addNewToast(message));
 	};
 	return (
 		<div className='footer-container'>
@@ -102,7 +109,9 @@ export const Footer = (): JSX.Element => {
 							<input type='email' placeholder='Your email address' className='sub-input' />
 						</div>
 						<div className='sub-btn-container'>
-							<button className='sub-btn'>Subscribe</button>
+							<button className='sub-btn' onClick={onSubClick}>
+								Subscribe
+							</button>
 						</div>
 					</div>
 					{/* <div className='footer-items'></div> */}
