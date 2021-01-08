@@ -4,7 +4,7 @@ import { checkIfOldVisitor } from '../utilities';
 
 export interface UserState {
 	name: string | null;
-	email: string | null;
+	id: string | null;
 	isLoggedIn: boolean;
 	showLoginModal: boolean;
 }
@@ -16,7 +16,7 @@ export interface UserState {
 
 const initialState: UserState = {
 	name: null,
-	email: null,
+	id: null,
 	isLoggedIn: false,
 	showLoginModal: !checkIfOldVisitor(),
 };
@@ -24,25 +24,18 @@ const initialState: UserState = {
 interface Profile {
 	first_name: string;
 	given_name: string;
-	email: string;
+	id: string;
 }
 
 export const loginUser = createAsyncThunk('user/login', async (provider: 'google' | 'facebook') => {
 	const response = await auth.signInWithPopup(provider === 'google' ? googleProvider : facebookProvider);
 	if (response.additionalUserInfo) {
 		const profile = response.additionalUserInfo.profile as Profile;
-		const email = profile.email;
+		const id = profile.id;
 		const name = provider === 'google' ? profile.given_name : profile.first_name;
-		return { name, email };
-	} else if (response.user) {
-		const { displayName, email } = response.user;
-		const name = displayName ? displayName.split(' ')[0] : null;
-		return {
-			name,
-			email,
-		};
+		return { name, id };
 	}
-	return { name: null, email: null };
+	return { name: null, id: null };
 });
 
 const userSlice = createSlice({
@@ -51,7 +44,7 @@ const userSlice = createSlice({
 	reducers: {
 		logOut: (state) => {
 			state.name = null;
-			state.email = null;
+			state.id = null;
 			state.isLoggedIn = false;
 		},
 		openLoginModal: (state) => {
@@ -63,9 +56,9 @@ const userSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(loginUser.fulfilled, (state, action) => {
-			const { name, email } = action.payload;
+			const { name, id } = action.payload;
 			state.name = name;
-			state.email = email;
+			state.id = id;
 			state.isLoggedIn = true;
 			state.showLoginModal = false;
 		});

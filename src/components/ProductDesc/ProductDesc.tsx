@@ -20,10 +20,13 @@ interface ProductDescProps {
 	size: SIZE | null;
 	quantity: number;
 	showSizeSelector: boolean;
+	addedToCart: boolean;
 	onAddToCart: () => void;
+	onDeleteFromCart: () => void;
 	onQuantityChange: (newQuantity: number) => void;
 	onSizeChange: (size: SIZE) => void;
 }
+
 const publicUrl = process.env.PUBLIC_URL;
 const images = [publicUrl + '/1_1.jpg', publicUrl + '/1_2.jpg', publicUrl + '/1_3.jpg', publicUrl + '/1_4.jpg'];
 
@@ -36,7 +39,9 @@ export const ProductDesc = ({
 	size,
 	quantity,
 	showSizeSelector,
+	addedToCart,
 	onAddToCart,
+	onDeleteFromCart,
 	onQuantityChange,
 	onSizeChange,
 }: ProductDescProps): ReactElement => {
@@ -55,7 +60,7 @@ export const ProductDesc = ({
 				<div className='product-desc'>
 					<p>{description}</p>
 				</div>
-				{showSizeSelector && (
+				{showSizeSelector && !addedToCart && (
 					<div className='product-size'>
 						<span className='title'>Size</span>
 						<div className='sizes'>
@@ -74,17 +79,28 @@ export const ProductDesc = ({
 						</div>
 					</div>
 				)}
-				<div className='product-quantity'>
-					<span className='title'>Quantity</span>
-					<div className='quantity'>
-						<QuantityControl initialQuantity={quantity} onQuantityChange={onQuantityChange} />
+				{!addedToCart && (
+					<div className='product-quantity'>
+						<span className='title'>Quantity</span>
+						<div className='quantity'>
+							<QuantityControl initialQuantity={quantity} onQuantityChange={onQuantityChange} />
+						</div>
 					</div>
-				</div>
-				<div className='add-product'>
-					<Button type='button' renderIcon={<FaShoppingCart />} onClick={onAddToCart}>
-						ADD TO CART
-					</Button>
-				</div>
+				)}
+				{!addedToCart && (
+					<div className='add-product'>
+						<Button type='button' renderIcon={<FaShoppingCart />} onClick={onAddToCart}>
+							ADD TO CART
+						</Button>
+					</div>
+				)}
+				{addedToCart && (
+					<div className='remove-product'>
+						<Button type='button' renderIcon={<FaShoppingCart />} onClick={onDeleteFromCart}>
+							REMOVE FROM CART
+						</Button>
+					</div>
+				)}
 			</div>
 		</div>
 	);

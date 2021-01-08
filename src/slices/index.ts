@@ -3,11 +3,13 @@ import inventoryReducer from './inventorySlice';
 import cartReducer from './cartSlice';
 import addressReducer from './addressSlice';
 import orderReducer from './orderSlice';
+import toastReducer from './toastSlice';
 
-export { userReducer, inventoryReducer, cartReducer, addressReducer, orderReducer };
+export { userReducer, inventoryReducer, cartReducer, addressReducer, orderReducer, toastReducer };
 
 export { loginUser, openLoginModal, hideLoginModal, logOut } from './userSlice';
 export { addOrder, ordersLoaded, selectAllOrders, selectOrderById } from './orderSlice';
+export { addNewToast, removeToast, selectAllToasts, getNewToastId } from './toastSlice';
 export {
 	addToCart,
 	deleteFromCart,
@@ -29,6 +31,7 @@ export {
 	selectAddressById,
 } from './addressSlice';
 
+export type { ToastMessage } from './toastSlice';
 export type { Order, ProductsEntity } from './orderSlice';
 export type { InventoryFilter } from './inventorySlice';
 export type { Address, ExtraAddressInfo } from './addressSlice';

@@ -71,10 +71,10 @@ export const Slider = ({ slides }: SliderProps): ReactElement => {
 		setTranslateX(translateX + sliderWidth);
 	};
 
-	// const prevSlide = () => {
-	// 	setActiveIndex(activeIndex === 0 ? slides.length - 1 : activeIndex - 1);
-	// 	setTranslateX(translateX - sliderWidth);
-	// };
+	const prevSlide = () => {
+		setActiveIndex(activeIndex === 0 ? slides.length - 1 : activeIndex - 1);
+		setTranslateX(translateX - sliderWidth);
+	};
 
 	const onNewSlideLoad = () => {
 		const correctPos = (activeIndex + 1) * sliderWidth;
@@ -103,7 +103,7 @@ export const Slider = ({ slides }: SliderProps): ReactElement => {
 							<Slide width={sliderWidth} key={slide + i} content={slide} />
 						))}
 					</SliderContent>
-					{/* <Arrow direction='left' handleClick={prevSlide} /> */}
+					<Arrow direction='left' handleClick={prevSlide} />
 					<Arrow direction='right' handleClick={nextSlide} />
 					<Dots slides={slides} activeIndex={activeIndex} onDotClick={onDotClick} />
 				</>

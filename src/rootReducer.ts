@@ -12,6 +12,8 @@ import {
 	ExtraAddressInfo,
 	Order,
 	orderReducer,
+	toastReducer,
+	ToastMessage,
 } from './slices';
 
 const rootReducer: Reducer<{
@@ -20,12 +22,14 @@ const rootReducer: Reducer<{
 	cart: EntityState<CartItem>;
 	address: EntityState<Address> & ExtraAddressInfo;
 	orders: EntityState<Order>;
+	toasts: EntityState<ToastMessage>;
 }> = combineReducers({
 	user: userReducer,
 	inventory: inventoryReducer,
 	cart: cartReducer,
 	address: addressReducer,
 	orders: orderReducer,
+	toasts: toastReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

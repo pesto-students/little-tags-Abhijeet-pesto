@@ -21,7 +21,7 @@ export const ViewAllCategory = (): ReactElement => {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-	}, []);
+	});
 
 	const onPgaeChange = (pager: Pager) => {
 		const { currentStartIndex, currentEndIndex } = pager;

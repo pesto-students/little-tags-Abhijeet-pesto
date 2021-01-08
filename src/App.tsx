@@ -1,7 +1,7 @@
 import { ReactElement, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Layout, ProtectedRoute, LoginModal } from './components';
+import { Layout, ProtectedRoute, LoginModal, Toast } from './components';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getInventory } from './slices';
@@ -58,6 +58,7 @@ function App(): ReactElement {
 				</Layout>
 			</Router>
 			<LoginModal showModal={showLoginModal} />
+			<Toast />
 		</div>
 	);
 }
