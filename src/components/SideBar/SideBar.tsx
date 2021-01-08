@@ -9,7 +9,6 @@ import * as RiIcons from 'react-icons/ri';
 import { setInventoryFilter } from '../../slices';
 
 interface Props {
-	sidebar: boolean;
 	isLoggedIn: boolean;
 	userName: string | null;
 	onCloseClick: (event: MouseEvent<HTMLOrSVGElement>) => void;
@@ -24,7 +23,7 @@ interface itemObj {
 	category: string;
 }
 
-export const SideBar = ({ sidebar, isLoggedIn, userName, onLogoutClick, onCloseClick }: Props): ReactElement => {
+export const SideBar = ({ isLoggedIn, userName, onLogoutClick, onCloseClick }: Props): ReactElement => {
 	// const [sidebarComponent, setSidebarComponent] = useState(sidebar);
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -53,7 +52,7 @@ export const SideBar = ({ sidebar, isLoggedIn, userName, onLogoutClick, onCloseC
 	// const showSidebarComponent = () => setSidebarComponent(!sidebarComponent);
 
 	return (
-		<nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+		<nav className='nav-menu'>
 			<ul className='nav-menu-items'>
 				<li className='navbar-toggle' key='header'>
 					<div className='sidebar-close'>

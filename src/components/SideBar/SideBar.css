@@ -20,7 +20,7 @@
 	justify-content: center;
 	position: fixed;
 	top: -10px;
-	/* left: -100%; */
+	left: 0;
 	/* transition: 850ms; */
 	border-radius: 25px;
 	z-index: 20;
@@ -171,22 +171,4 @@
 
 .sidebar-close svg {
 	cursor: pointer;
-}
-
-@keyframes slide-in {
-	from {
-		transform: translateX(-100%);
-	}
-	to {
-		transform: translateX(0);
-	}
-}
-
-@keyframes slide-out {
-	from {
-		transform: translateX(0);
-	}
-	to {
-		transform: translateX(-100%);
-	}
 }

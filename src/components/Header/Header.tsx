@@ -9,6 +9,7 @@ import { openLoginModal, getTotalItemsInCart, logOut } from '../../slices';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { RootState } from '../../rootReducer';
+import { CSSTransition } from 'react-transition-group';
 
 export interface HeaderProps {
 	userName: string | null;
@@ -61,24 +62,20 @@ export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 					'scroll-bg': !isScrollTop,
 				})}
 			>
-				{/* {sidebarHeader ? <div className='blur-filter'></div> : ''} */}
 				<div className='hamburger-container'>
 					<div className='navbar'>
 						<span className='menu-bars'>
 							<FaIcons.FaBars className='hamburger' onClick={showSidebar} />
 						</span>
-						{sidebarHeader && (
-							<div>
-								<div className='blur-filter' onClick={showSidebar}></div>
-								<SideBar
-									sidebar={sidebarHeader}
-									isLoggedIn={isLoggedIn}
-									userName={userName}
-									onLogoutClick={onLogoutClick}
-									onCloseClick={showSidebar}
-								/>
-							</div>
-						)}
+						{sidebarHeader && <div className='blur-filter' onClick={showSidebar}></div>}
+						<CSSTransition in={sidebarHeader} timeout={500} classNames='sidebar' unmountOnExit>
+							<SideBar
+								isLoggedIn={isLoggedIn}
+								userName={userName}
+								onLogoutClick={onLogoutClick}
+								onCloseClick={showSidebar}
+							/>
+						</CSSTransition>
 					</div>
 				</div>
 				<div className='brand-container'>

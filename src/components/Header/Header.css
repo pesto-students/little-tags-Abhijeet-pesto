@@ -133,3 +133,41 @@
 	letter-spacing: normal;
 	margin-bottom: 15px;
 }
+
+.sidebar-enter {
+	transform: translateX(-100%);
+}
+
+.sidebar-enter-active {
+	transform: translateX(0);
+	transition: transform 0.5s ease-in-out;
+	animation: slide-in 0.5s forwards;
+}
+
+.sidebar-exit {
+	transform: translateX(0);
+}
+
+.sidebar-exit-active {
+	transform: translateX(-100%);
+	transition: transform 0.5s ease-in-out;
+	animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-out {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
