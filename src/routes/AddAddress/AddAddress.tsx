@@ -3,8 +3,9 @@ import { STATEARR } from '../../utilities';
 import './AddAddress.css';
 import { Button } from '../../components';
 import { v4 as uniqueId } from 'uuid';
-import { Address, addAddress, setDefaultAddress } from '../../slices';
+import { Address, addAddress, setDefaultAddress, addNewToast, NewToastParams } from '../../slices';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 export const AddAddress = (): ReactElement => {
 	const [firstName, setFirstName] = useState('');
@@ -19,6 +20,7 @@ export const AddAddress = (): ReactElement => {
 	const [isSaveClicked, setisSaveClicked] = useState(false);
 
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const numberRegex = /^[0-9\b]+$/;
 
@@ -45,11 +47,18 @@ export const AddAddress = (): ReactElement => {
 				state: stateAdd,
 				pinCode: Number(pinCode),
 			};
+
+			const message: NewToastParams = {
+				title: 'success',
+				message: 'New Delivery address added.',
+			};
 			dispatch(addAddress(address));
 			if (isDefault) {
 				dispatch(setDefaultAddress(id));
 			}
+			dispatch(addNewToast(message));
 			setisSaveClicked(false);
+			history.push('/deliverto');
 		} else {
 			setisSaveClicked(true);
 		}

@@ -3,7 +3,16 @@ import './Product.css';
 import { ProductDesc, SIZE } from '../../components';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { openLoginModal, selectItemById, addToCart, CartItem, InventoryItem } from '../../slices';
+import {
+	openLoginModal,
+	selectItemById,
+	addToCart,
+	CartItem,
+	InventoryItem,
+	addNewToast,
+	NewToastParams,
+	deleteFromCart,
+} from '../../slices';
 import { RootState } from '../../rootReducer';
 import { CATEGORIES } from '../../utilities';
 
@@ -18,6 +27,7 @@ export const Product = (): ReactElement => {
 	const showSizeSelector = product?.category === CATEGORIES.MEN || product?.category === CATEGORIES.WOMEN;
 	const [size, setSize] = useState(showSizeSelector ? SIZE.MEDIUM : null);
 	const [quantity, setQuantity] = useState(1);
+	const [addedToCart, setAddedToCart] = useState(false);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -32,7 +42,7 @@ export const Product = (): ReactElement => {
 		setSize(size);
 	};
 
-	const onCartBtnClick = () => {
+	const onAddToCartClick = () => {
 		if (isAuthenticatedUser) {
 			const item: CartItem = {
 				id: Number(productId),
@@ -42,10 +52,27 @@ export const Product = (): ReactElement => {
 				quantity: quantity,
 				imgUrl: product.image,
 			};
+
+			const message: NewToastParams = {
+				title: 'success',
+				message: 'Product added to cart.',
+			};
 			dispatch(addToCart(item));
+			dispatch(addNewToast(message));
+			setAddedToCart(true);
 		} else {
 			dispatch(openLoginModal());
 		}
+	};
+
+	const onDeleteFromCartClick = () => {
+		const message: NewToastParams = {
+			title: 'info',
+			message: 'Product removed from cart.',
+		};
+		dispatch(deleteFromCart(productId));
+		dispatch(addNewToast(message));
+		setAddedToCart(false);
 	};
 
 	return (
@@ -58,7 +85,9 @@ export const Product = (): ReactElement => {
 					quantity={quantity}
 					size={size}
 					showSizeSelector={showSizeSelector}
-					onAddToCart={onCartBtnClick}
+					addedToCart={addedToCart}
+					onAddToCart={onAddToCartClick}
+					onDeleteFromCart={onDeleteFromCartClick}
 					onQuantityChange={onQuantityChange}
 					onSizeChange={onSizeChange}
 				/>

@@ -7,52 +7,102 @@
 
 	background-color: #32353c;
 	text-align: left;
+	padding: 12.5rem 5rem 3rem;
 }
 
 .footer-container .section {
-	display: flex;
+	/* display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: flex-start;
-	padding-top: 20px;
+	padding-top: 20px; */
 	width: 100%;
-	justify-content: space-around;
+	/* justify-content: space-around; */
 }
+
 .footer-header {
 	font-size: 2rem;
 	color: #f9f9f9;
-	padding-left: 20px;
+	/* padding-left: 20px; */
 }
+
+.footer-header:not(:last-of-type) {
+	float: left;
+}
+
+.footer-header:last-of-type {
+	float: right;
+	width: 37.5rem;
+}
+
+.footer-header:nth-child(2) {
+	padding-left: 6.5rem;
+}
+
 .footer-items {
-	font-size: 1.5rem;
+	/* font-size: 1.5rem; */
+	font-size: 2.5rem;
 	color: #6f6f6f;
-	padding: 2px;
+	/* padding: 2px; */
 }
+
 .footer-header-info {
-	margin-bottom: 15px;
+	margin-bottom: 2.5rem;
+	font-size: 3.2rem;
+	font-weight: bold;
 }
+
 .card-details {
-	margin-top: 20px;
+	margin-top: 6.5rem;
 }
+
 .imagesContainer {
 	margin-top: 20px;
 	justify-content: flex-start;
 	display: flex;
 }
+
+.imagesContainer img:not(:last-child) {
+	margin-right: 1.5rem;
+}
+
 .footer-category {
 	cursor: pointer;
+	padding-bottom: 2.5rem;
 }
+
+.footer-category:hover {
+	color: lightgray;
+}
+
 .sub-btn {
-	width: 100%;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 	background-color: #32353c;
 	color: white;
-	min-height: 30px;
+	padding: 2rem 1.5rem;
+	border: none;
+	height: 100%;
 }
+
+.sub-input-container {
+	max-width: 24rem;
+}
+
 .sub-input {
-	min-height: 30px;
-	font-size: 1.5rem;
-	min-width: 60%;
+	font-size: 2.2rem;
+	padding: 2rem 1.5rem;
+	width: 100%;
 }
+
+.sub-input:focus,
+.sub-btn:focus {
+	outline: none;
+}
+
+.sub-btn:active {
+	box-shadow: inset 0 0 10px #000000;
+}
+
 .subscribe {
 	display: flex;
 	justify-content: flex-start;
@@ -60,12 +110,33 @@
 
 .footer-details {
 	display: flex;
+	line-height: 1.2;
+	letter-spacing: 0.55px;
+	color: rgba(255, 255, 255, 0.71);
 	width: 100%;
-	font-size: 1.75rem;
-	color: #f9f9f9;
+	font-size: 2.6rem;
+	margin-top: 10rem;
+	padding-top: 5rem;
 	justify-content: space-between;
+	border-top: solid 1px #707070;
 }
+
 .rights {
 	display: flex;
 	justify-content: flex-end;
+}
+
+.footer-phone {
+	padding-bottom: 2.5rem;
+}
+
+.footer-address {
+	line-height: 1.36;
+	letter-spacing: 0.53px;
+}
+
+.subscribe-msg {
+	margin-top: 5rem;
+	line-height: 1.36;
+	letter-spacing: 0.53px;
 }

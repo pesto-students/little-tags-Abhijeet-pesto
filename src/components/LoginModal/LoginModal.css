@@ -46,3 +46,18 @@
 .login-modal .login-choices .btn:last-child {
 	margin-top: 2rem;
 }
+
+.close-modal {
+	position: absolute;
+	right: 1.5rem;
+}
+
+.close-modal button {
+	border: none;
+	font-size: 4rem;
+	background: none;
+}
+
+.close-modal button:focus {
+	outline: none;
+}

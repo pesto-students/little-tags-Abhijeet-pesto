@@ -76,19 +76,19 @@ const clearCurrentUser = () => {
 
 // saves the state based on the actions triggered by user
 // Only part of state is updated at a time
-const saveState = (userEmail: string | null, data: string, stateKey: string) => {
+const saveState = (userId: string | null, data: string, stateKey: string) => {
 	try {
 		switch (stateKey) {
 			case 'cart': {
-				localStorage.setItem(`${CART_KEY_PREFIX}${userEmail}`, data);
+				localStorage.setItem(`${CART_KEY_PREFIX}${userId}`, data);
 				break;
 			}
 			case 'address': {
-				localStorage.setItem(`${ADDRESS_KEY_PREFIX}${userEmail}`, data);
+				localStorage.setItem(`${ADDRESS_KEY_PREFIX}${userId}`, data);
 				break;
 			}
 			case 'orders': {
-				localStorage.setItem(`${ORDERS_KEY_PREFIX}${userEmail}`, data);
+				localStorage.setItem(`${ORDERS_KEY_PREFIX}${userId}`, data);
 				break;
 			}
 		}
@@ -98,11 +98,11 @@ const saveState = (userEmail: string | null, data: string, stateKey: string) => 
 };
 
 // gets the state for a particular user
-const loadState = (userEmail: string | null) => {
-	if (userEmail) {
-		const userCart = localStorage.getItem(`${CART_KEY_PREFIX}${userEmail}`);
-		const userAddress = localStorage.getItem(`${ADDRESS_KEY_PREFIX}${userEmail}`);
-		const userOrders = localStorage.getItem(`${ORDERS_KEY_PREFIX}${userEmail}`);
+const loadState = (userId: string | null) => {
+	if (userId) {
+		const userCart = localStorage.getItem(`${CART_KEY_PREFIX}${userId}`);
+		const userAddress = localStorage.getItem(`${ADDRESS_KEY_PREFIX}${userId}`);
+		const userOrders = localStorage.getItem(`${ORDERS_KEY_PREFIX}${userId}`);
 		return {
 			cart: userCart ? JSON.parse(userCart) : undefined,
 			address: userAddress ? JSON.parse(userAddress) : undefined,
@@ -118,7 +118,7 @@ export const reHydrateStore = (): Partial<RootState> | undefined => {
 	if (user) {
 		return {
 			user,
-			...loadState(user.email),
+			...loadState(user.id),
 		};
 	}
 	return undefined;
@@ -145,9 +145,9 @@ export const localStorageMiddleware: Middleware<Record<string, never>, RootState
 
 	switch (action.type) {
 		case loginUser.fulfilled.type: {
-			addNewUser(user.email); // if new user update users array
+			addNewUser(user.id); // if new user update users array
 			saveCurrentUserInfo(JSON.stringify(user)); // save user name & email
-			const existingState = loadState(user.email); // if old user get stored state
+			const existingState = loadState(user.id); // if old user get stored state
 			if (existingState) {
 				const { cart, address, orders } = existingState;
 				// update state for old user
@@ -167,7 +167,7 @@ export const localStorageMiddleware: Middleware<Record<string, never>, RootState
 			if (!ignoredActions.includes(action.type)) {
 				const stateKey = action.type.slice(0, action.type.indexOf('/')); // get the part(cart/address etc) of state for which update occurred
 				const data = Object.entries(state).find(([key]) => key === stateKey)?.[1]; // get the data for that part
-				saveState(user.email, JSON.stringify(data), stateKey); // update state in local storage
+				saveState(user.id, JSON.stringify(data), stateKey); // update state in local storage
 			}
 		}
 	}

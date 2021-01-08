@@ -19,7 +19,7 @@
 
 .order-details .order-name {
 	font-family: GothamMedium;
-	font-size: 40px;
+	font-size: 3.5rem;
 	font-weight: 500;
 	font-stretch: normal;
 	font-style: normal;
@@ -29,7 +29,7 @@
 
 .order-details .order-price {
 	font-family: PalatinoLinotype;
-	font-size: 30px;
+	font-size: 3rem;
 	font-weight: bold;
 	font-stretch: normal;
 	font-style: normal;
@@ -40,7 +40,7 @@
 
 .order-details .order-date {
 	font-family: GothamMedium;
-	font-size: 30px;
+	font-size: 3rem;
 	font-weight: 300;
 	font-stretch: normal;
 	font-style: normal;
@@ -50,6 +50,10 @@
 	padding-top: 1rem;
 }
 
-.order-card .reorder .btn {
+.order-card .reorder {
 	width: 40rem;
+}
+
+.order-card .reorder .btn {
+	width: 100%;
 }

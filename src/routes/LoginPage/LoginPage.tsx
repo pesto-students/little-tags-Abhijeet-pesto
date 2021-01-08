@@ -18,7 +18,7 @@ export const LoginPage = (): ReactElement => {
 	};
 
 	return (
-		<div className='loginPage-container'>
+		<div className='loginPage-container height-ex-footer'>
 			<div className='heading'>
 				<span>Log in / Sign up</span>
 			</div>
@@ -29,6 +29,7 @@ export const LoginPage = (): ReactElement => {
 				<Button type='button' renderIcon={<FaGoogle />} onClick={googleSignIn}>
 					Google Account
 				</Button>
+				<br />
 				<Button type='button' renderIcon={<FaFacebookF />} onClick={facebookSignIn}>
 					Facebook Account
 				</Button>

@@ -5,10 +5,11 @@ import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
 import { ReactElement, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { SideBar } from '../SideBar/SideBar';
-import { openLoginModal, getTotalItemsInCart } from '../../slices';
+import { openLoginModal, getTotalItemsInCart, logOut, addNewToast, NewToastParams } from '../../slices';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { RootState } from '../../rootReducer';
+import { CSSTransition } from 'react-transition-group';
 
 export interface HeaderProps {
 	userName: string | null;
@@ -29,6 +30,16 @@ export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 
 	const onLoginClick = () => {
 		dispatch(openLoginModal());
+	};
+
+	const onLogoutClick = () => {
+		const message: NewToastParams = {
+			title: 'info',
+			message: 'Logged out from Little Tags',
+		};
+		dispatch(logOut());
+		dispatch(addNewToast(message));
+		history.push('/');
 	};
 
 	useEffect(() => {
@@ -57,20 +68,20 @@ export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 					'scroll-bg': !isScrollTop,
 				})}
 			>
-				{sidebarHeader ? <div className='blur-filter'></div> : ''}
 				<div className='hamburger-container'>
 					<div className='navbar'>
 						<span className='menu-bars'>
 							<FaIcons.FaBars className='hamburger' onClick={showSidebar} />
-							{sidebarHeader ? (
-								<div>
-									<div className='blur-filter'></div>
-									<SideBar sidebar={sidebarHeader} isLoggedIn={isLoggedIn} userName={userName} />
-								</div>
-							) : (
-								''
-							)}
 						</span>
+						{sidebarHeader && <div className='blur-filter' onClick={showSidebar}></div>}
+						<CSSTransition in={sidebarHeader} timeout={500} classNames='sidebar' unmountOnExit>
+							<SideBar
+								isLoggedIn={isLoggedIn}
+								userName={userName}
+								onLogoutClick={onLogoutClick}
+								onCloseClick={showSidebar}
+							/>
+						</CSSTransition>
 					</div>
 				</div>
 				<div className='brand-container'>

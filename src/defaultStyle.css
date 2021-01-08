@@ -1,5 +1,6 @@
 html {
 	font-size: 10px;
+	scroll-behavior: smooth;
 }
 
 html,
@@ -58,7 +59,7 @@ body {
 
 @media only screen and (min-width: 1200px) {
 	html {
-		font-size: 8px;
+		font-size: 7px;
 	}
 }
 
@@ -104,7 +105,8 @@ body {
 
 .category-title,
 .cart-title,
-.orders-title {
+.orders-title,
+.no-items {
 	font-size: 5rem;
 	font-weight: 500;
 	font-stretch: normal;
@@ -112,4 +114,16 @@ body {
 	line-height: 1.2;
 	letter-spacing: normal;
 	padding-bottom: 5rem;
+}
+
+.btn:focus {
+	box-shadow: none;
+}
+
+.height-ex-footer {
+	height: calc(100% - 20rem);
+	padding-bottom: 10rem !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }

@@ -31,7 +31,7 @@ export const DeliverTo = (): ReactElement => {
 		<div
 			className={classNames({
 				'deliver-container': true,
-				'custom-height': allAddresses.length === 0,
+				'height-ex-footer': allAddresses.length === 0,
 			})}
 		>
 			<div className='header'>Deliver To</div>
@@ -47,7 +47,7 @@ export const DeliverTo = (): ReactElement => {
 					))}
 				</div>
 			) : (
-				<div className='no-address'>Please add an address</div>
+				<div className='no-address'>Please add an address to procced.</div>
 			)}
 			<div className='add-address-btn-container'>
 				<button type='button' className='btn add-address-btn' onClick={() => history.push('/addaddress')}>
