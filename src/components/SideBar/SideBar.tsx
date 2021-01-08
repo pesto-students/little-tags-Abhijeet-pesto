@@ -11,7 +11,7 @@ import { setInventoryFilter } from '../../slices';
 interface Props {
 	isLoggedIn: boolean;
 	userName: string | null;
-	onCloseClick: (event: MouseEvent<HTMLOrSVGElement>) => void;
+	onCloseClick: (event?: MouseEvent<HTMLOrSVGElement>) => void;
 	onLogoutClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -42,6 +42,7 @@ export const SideBar = ({ isLoggedIn, userName, onLogoutClick, onCloseClick }: P
 			);
 			history.push(`/viewall`);
 		}
+		onCloseClick();
 	};
 
 	// const onLogout = (event: MouseEvent<HTMLButtonElement>) => {
@@ -85,7 +86,7 @@ export const SideBar = ({ isLoggedIn, userName, onLogoutClick, onCloseClick }: P
 						</li>
 					);
 				})}
-				<hr className='nav-divider'></hr>
+				{isLoggedIn && <hr className='nav-divider'></hr>}
 				{isLoggedIn &&
 					LoggedInUser.map((item, index) => {
 						return (
@@ -99,7 +100,7 @@ export const SideBar = ({ isLoggedIn, userName, onLogoutClick, onCloseClick }: P
 					})}
 				{isLoggedIn && (
 					<li className='nav-logout'>
-						<button className='nav-logout-btn' onClick={onLogoutClick}>
+						<button type='button' className='nav-logout-btn' onClick={onLogoutClick}>
 							<RiIcons.RiLogoutCircleFill color='red' />
 							Logout
 						</button>

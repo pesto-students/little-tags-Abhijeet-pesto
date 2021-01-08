@@ -3,6 +3,7 @@ import './LoginModal.css';
 import { Modal } from 'react-bootstrap';
 import { Button } from '../common';
 import { FaFacebookF, FaGoogle } from 'react-icons/fa';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { loginUser, hideLoginModal } from '../../slices/userSlice';
 
@@ -28,6 +29,11 @@ export const LoginModal = ({ showModal }: LoginModalProps): ReactElement => {
 	return (
 		<Modal show={showModal} centered dialogClassName='login-modal' onHide={onModalClose} animation={true}>
 			<Modal.Body>
+				<div className='close-modal'>
+					<button type='button' onClick={onModalClose}>
+						<AiOutlineCloseCircle />
+					</button>
+				</div>
 				<div className='heading'>
 					<span>Log in / Sign up</span>
 				</div>

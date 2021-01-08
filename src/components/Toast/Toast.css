@@ -89,7 +89,6 @@
 .notification-message {
 	margin: 0;
 	text-align: left;
-	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }

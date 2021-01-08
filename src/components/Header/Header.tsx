@@ -5,7 +5,7 @@ import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
 import { ReactElement, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { SideBar } from '../SideBar/SideBar';
-import { openLoginModal, getTotalItemsInCart, logOut } from '../../slices';
+import { openLoginModal, getTotalItemsInCart, logOut, addNewToast, NewToastParams } from '../../slices';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { RootState } from '../../rootReducer';
@@ -33,7 +33,13 @@ export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 	};
 
 	const onLogoutClick = () => {
+		const message: NewToastParams = {
+			title: 'info',
+			message: 'Logged out from Little Tags',
+		};
 		dispatch(logOut());
+		dispatch(addNewToast(message));
+		history.push('/');
 	};
 
 	useEffect(() => {
