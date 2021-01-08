@@ -14,6 +14,8 @@ import {
 	Order,
 	addOrder,
 	emptyCart,
+	NewToastParams,
+	addNewToast,
 } from '../../slices';
 
 const getMonth = (monthNum: number): string => {
@@ -80,8 +82,13 @@ export const PaymentPage = (): ReactElement => {
 			products,
 			addressId: deliveryAddress.id,
 		};
+		const message: NewToastParams = {
+			title: 'success',
+			message: 'Order placed.',
+		};
 		dispatch(addOrder(order));
 		dispatch(emptyCart());
+		dispatch(addNewToast(message));
 		history.push('/thanks');
 	};
 

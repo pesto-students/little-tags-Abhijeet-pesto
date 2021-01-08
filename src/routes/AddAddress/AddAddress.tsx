@@ -31,7 +31,6 @@ export const AddAddress = (): ReactElement => {
 			emailId !== '' &&
 			phoneNo !== '' &&
 			addressLine1 !== '' &&
-			addressLine2 !== '' &&
 			stateAdd !== '' &&
 			pinCode !== ''
 		) {
@@ -69,7 +68,9 @@ export const AddAddress = (): ReactElement => {
 			<div className='header'>Deliver To</div>
 			<div className='addAddressRow'>
 				<div className='addAddressCol'>
-					<div className='addInput'>First Name</div>
+					<div className='addInput'>
+						First Name <span className='required'>*</span>
+					</div>
 					<input
 						className='addInputBox'
 						type='text'
@@ -77,9 +78,12 @@ export const AddAddress = (): ReactElement => {
 						onChange={(e) => {
 							setFirstName(e.target.value);
 						}}
+						required
 					/>
 					{isSaveClicked ? firstName === '' ? <span className='field-required'>This field is required</span> : '' : ''}
-					<div className='addInput'>Last Name</div>
+					<div className='addInput'>
+						Last Name <span className='required'>*</span>
+					</div>
 					<input
 						className='addInputBox'
 						type='text'
@@ -89,7 +93,9 @@ export const AddAddress = (): ReactElement => {
 						}}
 					/>
 					{isSaveClicked ? lastName === '' ? <span className='field-required'>This field is required</span> : '' : ''}
-					<div className='addInput  '>Email Id</div>
+					<div className='addInput  '>
+						Email Id <span className='required'>*</span>
+					</div>
 					<input
 						className='addInputBox'
 						type='text'
@@ -99,7 +105,9 @@ export const AddAddress = (): ReactElement => {
 						}}
 					/>
 					{isSaveClicked ? emailId === '' ? <span className='field-required'>This field is required</span> : '' : ''}
-					<div className='addInput'>Phone Number</div>
+					<div className='addInput'>
+						Phone Number <span className='required'>*</span>
+					</div>
 					<input
 						className='addInputBox'
 						type='text'
@@ -115,7 +123,9 @@ export const AddAddress = (): ReactElement => {
 					{isSaveClicked ? phoneNo === '' ? <span className='field-required'>This field is required</span> : '' : ''}
 				</div>
 				<div className='addAddressCol'>
-					<div className='addInput '>Address line 1</div>
+					<div className='addInput '>
+						Address line 1 <span className='required'>*</span>
+					</div>
 					<input
 						className='addInputBox'
 						type='text'
@@ -142,16 +152,9 @@ export const AddAddress = (): ReactElement => {
 							setAddressLine2(e.target.value);
 						}}
 					/>
-					{isSaveClicked ? (
-						addressLine2 === '' ? (
-							<span className='field-required'>This field is required</span>
-						) : (
-							''
-						)
-					) : (
-						''
-					)}
-					<div className='addInput '>State</div>
+					<div className='addInput '>
+						State <span className='required'>*</span>
+					</div>
 					<select
 						className='addInputBox'
 						value={stateAdd}
@@ -168,7 +171,9 @@ export const AddAddress = (): ReactElement => {
 						})}
 					</select>
 
-					<div className='addInput '>Pincode</div>
+					<div className='addInput '>
+						Pincode <span className='required'>*</span>
+					</div>
 					<input
 						className='addInputBox'
 						type='text'
