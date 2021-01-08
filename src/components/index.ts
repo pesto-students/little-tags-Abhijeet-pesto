@@ -14,4 +14,5 @@ export { ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
 export { LoginModal } from './LoginModal/LoginModal';
 export { Footer } from './Footer/Footer';
 export { Toast } from './Toast/Toast';
+export { NoItems } from './NoItems/NoItems';
 export type { Pager } from './Pagination/Pagination';

@@ -50,6 +50,10 @@
 	padding-top: 1rem;
 }
 
-.order-card .reorder .btn {
+.order-card .reorder {
 	width: 40rem;
+}
+
+.order-card .reorder .btn {
+	width: 100%;
 }

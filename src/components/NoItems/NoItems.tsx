@@ -1,16 +1,16 @@
 import { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
-import './ThankYou.css';
-import * as FaIcons from 'react-icons/fa';
 
-export const ThankYou = (): ReactElement => {
+interface NoItemsProps {
+	message: string;
+}
+
+export const NoItems = ({ message }: NoItemsProps): ReactElement => {
 	const history = useHistory();
+
 	return (
-		<div className='thankyou-container'>
-			<div>
-				<FaIcons.FaRegSmile size={200} />
-			</div>
-			<div className='text'>Thank you for shopping with us</div>
+		<div className='no-items'>
+			<span>{message}</span>
 			<div>
 				<button
 					className='continue-shopping-btn'

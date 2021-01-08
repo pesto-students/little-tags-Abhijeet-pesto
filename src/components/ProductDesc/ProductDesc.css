@@ -119,6 +119,11 @@
 	text-align: left;
 }
 
-.product-desc-container .product-details .remove-product .btn {
+.product-desc-container .product-details .remove-product .btn:first-child {
 	width: 35rem;
+	margin-right: 5rem;
+}
+
+.product-desc-container .product-details .remove-product .btn:last-child {
+	width: 30rem;
 }

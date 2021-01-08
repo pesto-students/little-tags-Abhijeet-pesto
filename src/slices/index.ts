@@ -9,7 +9,7 @@ export { userReducer, inventoryReducer, cartReducer, addressReducer, orderReduce
 
 export { loginUser, openLoginModal, hideLoginModal, logOut } from './userSlice';
 export { addOrder, ordersLoaded, selectAllOrders, selectOrderById } from './orderSlice';
-export { addNewToast, removeToast, selectAllToasts, getNewToastId } from './toastSlice';
+export { addNewToast, removeToast, selectAllToasts } from './toastSlice';
 export {
 	addToCart,
 	deleteFromCart,
@@ -18,6 +18,7 @@ export {
 	getTotalItemsInCart,
 	cartLoaded,
 	selectAllCartItems,
+	selectCartItemById,
 } from './cartSlice';
 export { getInventory, setInventoryFilter, selectFilteredItems, selectItemById } from './inventorySlice';
 export {
@@ -31,7 +32,7 @@ export {
 	selectAddressById,
 } from './addressSlice';
 
-export type { ToastMessage } from './toastSlice';
+export type { ToastMessage, NewToastParams } from './toastSlice';
 export type { Order, ProductsEntity } from './orderSlice';
 export type { InventoryFilter } from './inventorySlice';
 export type { Address, ExtraAddressInfo } from './addressSlice';

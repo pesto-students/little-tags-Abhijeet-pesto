@@ -4,6 +4,7 @@ import { Slider } from '../ImageSlider/Slider';
 import { Button, QuantityControl } from '../common';
 import { FaShoppingCart } from 'react-icons/fa';
 import classNames from 'classnames';
+import { useHistory } from 'react-router-dom';
 
 export enum SIZE {
 	EXTRASMALL = 'XS',
@@ -45,6 +46,8 @@ export const ProductDesc = ({
 	onQuantityChange,
 	onSizeChange,
 }: ProductDescProps): ReactElement => {
+	const history = useHistory();
+
 	return (
 		<div className='product-desc-container'>
 			<div className='product-image-slider'>
@@ -98,6 +101,9 @@ export const ProductDesc = ({
 					<div className='remove-product'>
 						<Button type='button' renderIcon={<FaShoppingCart />} onClick={onDeleteFromCart}>
 							REMOVE FROM CART
+						</Button>
+						<Button type='button' renderIcon={<FaShoppingCart />} onClick={() => history.push('/cart')}>
+							GO TO CART
 						</Button>
 					</div>
 				)}

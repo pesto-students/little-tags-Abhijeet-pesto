@@ -10,8 +10,7 @@ import {
 	CartItem,
 	InventoryItem,
 	addNewToast,
-	ToastMessage,
-	getNewToastId,
+	NewToastParams,
 	deleteFromCart,
 } from '../../slices';
 import { RootState } from '../../rootReducer';
@@ -54,8 +53,7 @@ export const Product = (): ReactElement => {
 				imgUrl: product.image,
 			};
 
-			const message: ToastMessage = {
-				id: getNewToastId(),
+			const message: NewToastParams = {
 				title: 'success',
 				message: 'Product added to cart.',
 			};
@@ -68,9 +66,8 @@ export const Product = (): ReactElement => {
 	};
 
 	const onDeleteFromCartClick = () => {
-		const message: ToastMessage = {
-			id: getNewToastId(),
-			title: 'success',
+		const message: NewToastParams = {
+			title: 'info',
 			message: 'Product removed from cart.',
 		};
 		dispatch(deleteFromCart(productId));
