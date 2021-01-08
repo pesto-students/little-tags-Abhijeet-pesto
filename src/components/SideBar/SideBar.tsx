@@ -1,10 +1,9 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, MouseEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as AiIcons from 'react-icons/ai';
 import { SidebarData, LoggedInUser } from './SideBarData';
 import './SideBar.css';
 import { useDispatch } from 'react-redux';
-import { logOut } from '../../slices';
 import * as BiIcons from 'react-icons/bi';
 import * as RiIcons from 'react-icons/ri';
 import { setInventoryFilter } from '../../slices';
@@ -13,7 +12,10 @@ interface Props {
 	sidebar: boolean;
 	isLoggedIn: boolean;
 	userName: string | null;
+	onCloseClick: (event: MouseEvent<HTMLOrSVGElement>) => void;
+	onLogoutClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
+
 interface itemObj {
 	title: string | undefined;
 	path: string;
@@ -22,10 +24,11 @@ interface itemObj {
 	category: string;
 }
 
-export const SideBar = ({ sidebar, isLoggedIn, userName }: Props): ReactElement => {
-	const [sidebarComponent, setSidebarComponent] = useState(sidebar);
+export const SideBar = ({ sidebar, isLoggedIn, userName, onLogoutClick, onCloseClick }: Props): ReactElement => {
+	// const [sidebarComponent, setSidebarComponent] = useState(sidebar);
 	const history = useHistory();
 	const dispatch = useDispatch();
+
 	const onClickHistory = (item: itemObj) => {
 		const category = item.category;
 		if (category?.length === 0) history.push(item.path);
@@ -41,65 +44,67 @@ export const SideBar = ({ sidebar, isLoggedIn, userName }: Props): ReactElement 
 			history.push(`/viewall`);
 		}
 	};
-	const onLogout = () => {
-		console.log('here');
-		dispatch(logOut());
-	};
-	const showSidebarComponent = () => setSidebarComponent(!sidebarComponent);
+
+	// const onLogout = (event: MouseEvent<HTMLButtonElement>) => {
+	// 	event.preventDefault();
+	// 	dispatch(logOut());
+	// };
+
+	// const showSidebarComponent = () => setSidebarComponent(!sidebarComponent);
+
 	return (
-		<nav className={sidebarComponent ? 'nav-menu active' : 'nav-menu'}>
-			<ul className='nav-menu-items' onClick={showSidebarComponent}>
+		<nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+			<ul className='nav-menu-items'>
 				<li className='navbar-toggle' key='header'>
-					<span className='menu-bars'>
-						<AiIcons.AiFillCloseCircle color='black' size={20}></AiIcons.AiFillCloseCircle>
-					</span>
-					<span className='nav-header'>Little Tags</span>
+					<div className='sidebar-close'>
+						<AiIcons.AiFillCloseCircle color='black' onClick={onCloseClick}></AiIcons.AiFillCloseCircle>
+					</div>
+					<div className='nav-header'>
+						<span>Little Tags</span>
+					</div>
 				</li>
-				{isLoggedIn ? (
+				{isLoggedIn && (
 					<li key='userName'>
-						<span className='nav-text nav-user'>
+						<div className='nav-text nav-user'>
 							<BiIcons.BiUserCircle size={30} />
-							<span>Hy! {userName}</span>
-						</span>
+							<span>Hey! {userName}</span>
+						</div>
 					</li>
-				) : (
-					''
 				)}
 				{SidebarData.map((item, index) => {
-					return item.title !== '' ? (
-						<li key={index} className={item.cName}>
-							<span onClick={() => onClickHistory(item)}>
-								{item.icon}
+					return item.title === 'CATEGORIES' ? (
+						<li key={index} className={`nav-heading nav-item ${item.cName}`}>
+							<div>
 								<span>{item.title}</span>
-							</span>
+							</div>
 						</li>
 					) : (
-						<hr></hr>
+						<li key={index} className={`${item.cName} nav-link nav-item`}>
+							<div>
+								<span onClick={() => onClickHistory(item)}>{item.title}</span>
+							</div>
+						</li>
 					);
 				})}
-				{isLoggedIn
-					? LoggedInUser.map((item, index) => {
-							return item.title !== '' ? (
-								<li key={index} className={item.cName}>
-									<span onClick={() => onClickHistory(item)}>
-										{item.icon}
-										<span>{item.title}</span>
-									</span>
-								</li>
-							) : (
-								<hr></hr>
-							);
-					  })
-					: ''}
-				{isLoggedIn ? (
-					<li key='logoutBtn'>
-						<button className='nav-text logout' onClick={onLogout}>
-							<RiIcons.RiLogoutCircleFill color='red' size={20} />
+				<hr className='nav-divider'></hr>
+				{isLoggedIn &&
+					LoggedInUser.map((item, index) => {
+						return (
+							<li key={index} className={`${item.cName} nav-link nav-item nav-loggedin-link`}>
+								<span onClick={() => onClickHistory(item)}>
+									{item.icon}
+									<span>{item.title}</span>
+								</span>
+							</li>
+						);
+					})}
+				{isLoggedIn && (
+					<li className='nav-logout'>
+						<button className='nav-logout-btn' onClick={onLogoutClick}>
+							<RiIcons.RiLogoutCircleFill color='red' />
 							Logout
 						</button>
 					</li>
-				) : (
-					''
 				)}
 			</ul>
 		</nav>

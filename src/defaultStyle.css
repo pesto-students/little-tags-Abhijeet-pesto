@@ -59,7 +59,7 @@ body {
 
 @media only screen and (min-width: 1200px) {
 	html {
-		font-size: 8px;
+		font-size: 7px;
 	}
 }
 
@@ -121,7 +121,7 @@ body {
 }
 
 .height-ex-footer {
-	height: calc(100% - 180px);
+	height: calc(100% - 20rem);
 	padding-bottom: 10rem !important;
 	display: flex;
 	flex-direction: column;

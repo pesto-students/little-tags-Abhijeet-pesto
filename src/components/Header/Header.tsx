@@ -5,7 +5,7 @@ import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
 import { ReactElement, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { SideBar } from '../SideBar/SideBar';
-import { openLoginModal, getTotalItemsInCart } from '../../slices';
+import { openLoginModal, getTotalItemsInCart, logOut } from '../../slices';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { RootState } from '../../rootReducer';
@@ -29,6 +29,10 @@ export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 
 	const onLoginClick = () => {
 		dispatch(openLoginModal());
+	};
+
+	const onLogoutClick = () => {
+		dispatch(logOut());
 	};
 
 	useEffect(() => {
@@ -57,20 +61,24 @@ export const Header = ({ userName, isLoggedIn }: HeaderProps): ReactElement => {
 					'scroll-bg': !isScrollTop,
 				})}
 			>
-				{sidebarHeader ? <div className='blur-filter'></div> : ''}
+				{/* {sidebarHeader ? <div className='blur-filter'></div> : ''} */}
 				<div className='hamburger-container'>
 					<div className='navbar'>
 						<span className='menu-bars'>
 							<FaIcons.FaBars className='hamburger' onClick={showSidebar} />
-							{sidebarHeader ? (
-								<div>
-									<div className='blur-filter'></div>
-									<SideBar sidebar={sidebarHeader} isLoggedIn={isLoggedIn} userName={userName} />
-								</div>
-							) : (
-								''
-							)}
 						</span>
+						{sidebarHeader && (
+							<div>
+								<div className='blur-filter' onClick={showSidebar}></div>
+								<SideBar
+									sidebar={sidebarHeader}
+									isLoggedIn={isLoggedIn}
+									userName={userName}
+									onLogoutClick={onLogoutClick}
+									onCloseClick={showSidebar}
+								/>
+							</div>
+						)}
 					</div>
 				</div>
 				<div className='brand-container'>

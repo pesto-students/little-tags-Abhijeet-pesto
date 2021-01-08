@@ -27,7 +27,7 @@ export const CartItemCard = ({ item, onItemQuantityChange }: CartItemCardProps):
 						<span>{name}</span>
 					</div>
 					<div className='item-price'>
-						<span>&#x20B9; {price * itemQuantity}</span>
+						<span>&#x20B9; {(price * itemQuantity).toFixed(2)}</span>
 					</div>
 				</div>
 				<div className='item-quantity'>
