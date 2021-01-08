@@ -12,7 +12,7 @@
 	border: solid 2px black;
 }
 
-.quantity-control .btn:focus {
+.quantity-control .btn:active {
 	box-shadow: 0 0 0 0.2rem rgb(0 0 0 / 0.5);
 	background: black;
 	color: white;
