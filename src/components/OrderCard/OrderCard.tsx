@@ -13,7 +13,7 @@ interface OrderCardProps {
 export const OrderCard = ({ product, orderDate }: OrderCardProps): ReactElement => {
 	const [orderedAgain, setOrderedAgain] = useState(false);
 	const dispatch = useDispatch();
-	const { name, price, imgUrl } = product;
+	const { name, price, imgUrl, quantity } = product;
 
 	const onOrderAgainClick = () => {
 		const message: NewToastParams = {
@@ -35,7 +35,7 @@ export const OrderCard = ({ product, orderDate }: OrderCardProps): ReactElement 
 					<span>{name}</span>
 				</div>
 				<div className='order-price'>
-					<span>&#x20B9; {price}</span>
+					<span>&#x20B9; {(price * quantity).toFixed(2)}</span>
 				</div>
 				<div className='order-date'>
 					<span>{orderDate}</span>

@@ -9,6 +9,7 @@ export enum CATEGORIES {
 	JEWELERY = 'jewelery',
 	ELECTRONIS = 'electronics',
 }
+
 export const STATEARR: string[] = [
 	'Andaman & Nicobar',
 	'Andhra Pradesh',

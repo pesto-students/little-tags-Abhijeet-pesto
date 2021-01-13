@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
-import './CartItemCard.css';
 import { ProductThumbnail } from '../ProductThumbnail/ProductThumbnail';
 import { QuantityControl } from '../common';
 import { CartItem } from '../../slices';
+import './CartItemCard.css';
 
 interface CartItemCardProps {
 	item: CartItem;
