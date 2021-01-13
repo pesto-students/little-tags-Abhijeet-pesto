@@ -73,3 +73,6 @@
 	padding-left: 1rem;
 	vertical-align: middle;
 }
+.required {
+	color: red;
+}
