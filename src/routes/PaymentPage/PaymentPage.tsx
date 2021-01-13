@@ -1,9 +1,9 @@
 import { ReactElement, useState, ChangeEvent } from 'react';
-import './PaymentPage.css';
 import { DeliveryCard, RadioInput, Button } from '../../components';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../rootReducer';
 import { useHistory } from 'react-router-dom';
+import { getDateString } from '../../utilities';
 import { v4 as uniqueId } from 'uuid';
 import {
 	selectAddressById,
@@ -17,41 +17,7 @@ import {
 	NewToastParams,
 	addNewToast,
 } from '../../slices';
-
-const getMonth = (monthNum: number): string => {
-	switch (monthNum) {
-		case 0:
-			return 'January';
-		case 1:
-			return 'February';
-		case 2:
-			return 'March';
-		case 3:
-			return 'April';
-		case 4:
-			return 'May';
-		case 5:
-			return 'June';
-		case 6:
-			return 'July';
-		case 7:
-			return 'August';
-		case 8:
-			return 'September';
-		case 9:
-			return 'October';
-		case 10:
-			return 'November';
-		case 11:
-			return 'December';
-	}
-	return '';
-};
-
-const getDate = () => {
-	const date = new Date();
-	return `${date.getDate()} ${getMonth(date.getMonth())} ${date.getFullYear()}`;
-};
+import './PaymentPage.css';
 
 export const PaymentPage = (): ReactElement => {
 	const [paymentOption, setPaymentOption] = useState('razor');
@@ -78,7 +44,7 @@ export const PaymentPage = (): ReactElement => {
 		};
 		const order: Order = {
 			id: uniqueId(),
-			date: getDate(),
+			date: getDateString(),
 			products,
 			addressId: deliveryAddress.id,
 		};
