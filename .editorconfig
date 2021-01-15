@@ -10,7 +10,7 @@ insert_final_newline = true
 
 # Matches multiple files with brace expansion notation
 # Tab indentation 
-[*.{js,jsx,html,sass}]
+[*.{js,jsx,ts,tsx,html,sass,css}]
 charset = utf-8
 indent_style = tab
 indent_size = 2
