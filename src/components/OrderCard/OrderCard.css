@@ -1,0 +1,59 @@
+.order-card {
+	width: inherit;
+	height: inherit;
+	display: flex;
+	align-items: center;
+	background-color: #ffffff;
+}
+
+.order-image {
+	flex: 0.4 1 0;
+	height: 100%;
+}
+
+.order-details {
+	flex: 1 1 0;
+	text-align: left;
+	padding: 0 10rem;
+}
+
+.order-details .order-name {
+	font-family: GothamMedium;
+	font-size: 3.5rem;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	letter-spacing: normal;
+	padding-bottom: 1rem;
+}
+
+.order-details .order-price {
+	font-family: PalatinoLinotype;
+	font-size: 3rem;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	letter-spacing: 0.24px;
+	color: #32353c;
+	padding: 1rem 0;
+}
+
+.order-details .order-date {
+	font-family: GothamMedium;
+	font-size: 3rem;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	letter-spacing: 0.24px;
+	text-align: left;
+	color: #32353c;
+	padding-top: 1rem;
+}
+
+.order-card .reorder {
+	width: 40rem;
+}
+
+.order-card .reorder .btn {
+	width: 100%;
+}

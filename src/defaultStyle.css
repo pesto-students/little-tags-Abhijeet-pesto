@@ -1,0 +1,129 @@
+html {
+	font-size: 10px;
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body,
+#root,
+.App,
+.fullHeight {
+	height: 100%;
+}
+
+*,
+::after,
+::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1;
+	text-align: center;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.form-control:focus {
+	border: none;
+	box-shadow: none;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+@media only screen and (min-width: 1200px) {
+	html {
+		font-size: 7px;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	html {
+		font-size: 10px;
+	}
+}
+
+@font-face {
+	font-family: GothamMedium;
+	src: local(Gotham-Medium), url(assets/fonts/GothamMedium.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+}
+
+.item-list-container {
+	padding: 0 10rem 10rem;
+}
+
+.cart-container .item-list-container {
+	padding: 0 10rem 5rem;
+}
+
+.item-list-container ul {
+	list-style: none;
+	padding: 0;
+}
+
+.item-list-container ul li {
+	height: 20rem;
+	margin-bottom: 3rem;
+}
+
+.cart-container .item-list-container ul li {
+	margin-bottom: 4.5rem;
+}
+
+.orders-container .item-list-container ul li {
+	height: 25rem;
+}
+
+.category-title,
+.cart-title,
+.orders-title,
+.no-items {
+	font-size: 5rem;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.2;
+	letter-spacing: normal;
+	padding-bottom: 5rem;
+}
+
+.btn:focus {
+	box-shadow: none;
+}
+
+.height-ex-footer {
+	height: calc(100% - 20rem);
+	padding-bottom: 10rem !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

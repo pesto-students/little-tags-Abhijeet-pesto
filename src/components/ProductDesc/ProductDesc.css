@@ -1,0 +1,129 @@
+.product-desc-container {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.product-desc-container .product-image-slider {
+	flex: 1 1 0;
+	padding: 5rem;
+}
+
+.product-desc-container .product-details {
+	flex: 1 1 0;
+	/* padding-right: 15rem; */
+	padding-left: 10rem;
+}
+
+.product-desc-container .product-image-slider,
+.product-desc-container .product-details {
+	height: 100%;
+	position: relative;
+}
+
+.product-desc-container .product-details .product-name {
+	font-size: 4rem;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	/* line-height: 1.21; */
+	letter-spacing: normal;
+	text-align: left;
+	padding: 2rem 0 1rem;
+}
+
+.product-desc-container .product-details .product-price {
+	font-family: PalatinoLinotype;
+	font-size: 3rem;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	/* line-height: 1.21; */
+	letter-spacing: 0.27px;
+	text-align: left;
+	color: #32353c;
+	padding: 1rem 0;
+}
+
+.product-desc-container .product-details .product-desc {
+	font-family: Arial;
+	font-size: 2.2rem;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.18;
+	letter-spacing: normal;
+	text-align: left;
+	padding: 1rem 0;
+	height: calc(100% - 45rem);
+	max-height: calc(100% - 50rem);
+	overflow-x: hidden;
+	overflow-y: auto;
+	/* display: flex;
+	align-items: center; */
+}
+
+.product-desc-container .product-details .product-size,
+.product-desc-container .product-details .product-quantity {
+	font-family: Arial;
+	font-size: 30px;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.13;
+	letter-spacing: normal;
+	text-align: left;
+	padding: 1rem 0;
+}
+
+.product-size .sizes {
+	padding-top: 1rem;
+}
+
+.product-size .sizes .size {
+	margin-right: 1.5rem;
+	color: #d8d8d8;
+	cursor: pointer;
+}
+
+.product-size .sizes .size.selected {
+	color: black;
+}
+
+.product-quantity .quantity {
+	padding-top: 1.5rem;
+}
+
+.product-desc-container .product-details .product-size .title,
+.product-desc-container .product-details .product-quantity .title {
+	font-weight: bold;
+}
+
+.product-desc-container .product-details .add-product {
+	padding-top: 3rem;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	letter-spacing: normal;
+	text-align: left;
+	position: absolute;
+	bottom: 0;
+}
+
+.product-desc-container .product-details .remove-product {
+	padding-top: 3rem;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	letter-spacing: normal;
+	text-align: left;
+}
+
+.product-desc-container .product-details .remove-product .btn:first-child {
+	width: 35rem;
+	margin-right: 5rem;
+}
+
+.product-desc-container .product-details .remove-product .btn:last-child {
+	width: 30rem;
+}

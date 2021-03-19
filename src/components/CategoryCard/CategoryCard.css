@@ -1,0 +1,41 @@
+.category-card-container {
+	width: inherit;
+	height: inherit;
+	display: flex;
+	align-items: center;
+	border-radius: 20px;
+	box-shadow: 0 0 16px 0 rgba(40, 44, 181, 0.16);
+	background-color: #ffffff;
+	padding: 2.5rem 8.5rem 2.5rem 2.5rem;
+	cursor: pointer;
+}
+
+.category-card-container .product-image {
+	flex: 0.25 1 0;
+	height: 100%;
+}
+
+.category-card-container .product-name {
+	flex: 1 1 0;
+	text-align: left;
+	align-self: center;
+	padding: 0 3rem;
+	font-size: 3.5rem;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.21;
+	letter-spacing: normal;
+}
+
+.category-card-container .product-price {
+	flex: 0.25 1 0;
+	align-self: center;
+	font-size: 2.5rem;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.2;
+	letter-spacing: 0.2px;
+	color: #32353c;
+}

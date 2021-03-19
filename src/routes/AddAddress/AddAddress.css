@@ -1,0 +1,78 @@
+.address-container {
+	padding: 15rem 20rem 10rem;
+}
+
+.addInput {
+	font-size: 20px;
+	font-family: Gotham;
+	padding: 10px;
+	font-weight: bold;
+}
+
+.addInputBox {
+	align-items: left;
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+	font-family: Gotham;
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+.address-container .header {
+	font-size: 5rem;
+	font-weight: 500;
+	padding-bottom: 5rem;
+}
+
+.add-btn-container {
+	padding-top: 2.5rem;
+}
+
+.address-container .add-btn-container .btn {
+	width: 35rem;
+}
+
+.addAddressRow {
+	display: flex;
+}
+
+.addAddressRow .addAddressCol:first-child {
+	padding-right: 10rem;
+}
+
+.addAddressRow .addAddressCol:last-child {
+	padding-left: 10rem;
+}
+
+.addAddressCol {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	text-align: left;
+}
+
+.field-required {
+	font-size: 15px;
+	color: red;
+	text-align: left;
+}
+
+.address-checkbox-conatiner {
+	font-size: 2.4rem;
+	padding-top: 2.5rem;
+}
+
+.address-checkbox-conatiner label input {
+	width: 2rem;
+	height: 2rem;
+	vertical-align: middle;
+}
+
+.address-checkbox-conatiner label span {
+	padding-left: 1rem;
+	vertical-align: middle;
+}
+.required {
+	color: red;
+}

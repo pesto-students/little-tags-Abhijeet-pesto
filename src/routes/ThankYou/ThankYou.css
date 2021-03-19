@@ -1,0 +1,21 @@
+.thankyou-container {
+	padding: 15rem;
+}
+
+.thankyou-container .text {
+	font-family: GothamMedium;
+	font-size: 5rem;
+	font-weight: 500;
+	padding-top: 5rem;
+}
+
+.continue-shopping-btn {
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+	border: solid 1px black;
+	background: white;
+	border-radius: 5px;
+	padding: 2rem 4rem;
+	margin-top: 5rem;
+	font-family: GothamMedium;
+	font-size: 2.4rem;
+}
