@@ -23,9 +23,12 @@ const inventoryAdapter = createEntityAdapter<InventoryItem>({
 });
 
 export const getInventory = createAsyncThunk('inventory/loadItems', async () => {
-	const response = await fetch('https://fakestoreapi.com/products');
+	const response = await fetch('https://fakestoreapi.herokuapp.com/products');
 	const items: InventoryItem[] = await response.json();
-	return items;
+	return items.map((item) => {
+		item.image = item.image.replace('fakestoreapi', 'fakestoreapi.herokuapp');
+		return item;
+	});
 });
 
 const inventorySlice = createSlice({
