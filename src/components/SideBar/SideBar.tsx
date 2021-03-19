@@ -1,4 +1,4 @@
-import React, { ReactElement, MouseEvent } from 'react';
+import { ReactElement, MouseEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as AiIcons from 'react-icons/ai';
 import { SidebarData, LoggedInUser } from './SideBarData';
